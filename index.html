@@ -1,95 +1,122 @@
-/* VARIABLES GLOBALES (Colores y Fuentes) */
-:root {
-    --gold: #d4af37; /* Dorado Premium de los ejemplos */
-    --gold-hover: #f1c40f;
-    --bg-dark: #0d0d0d; /* Negro mate profundo */
-    --bg-card: #1a1a1a; /* Gris muy oscuro para tarjetas */
-    --text-main: #f4f4f4;
-    --text-muted: #aaaaaa;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Querencia - Fundo Campestre | Moche, Trujillo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* ESTILOS BASE */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    padding-top: 80px; /* Espacio para la navbar fija */
-}
+    <nav class="navbar">
+        <div class="logo">LA QUERENCIA</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#carta">Carta</a></li>
+            <li><a href="#caballos">Mundo Ecuestre</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="tel:+51913047602" class="btn-reserva-nav">Llamar Ahora</a>
+    </nav>
 
-h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    <header id="inicio" class="hero">
+        <div class="hero-overlay">
+            <div class="stars">⭐ 4.2 (158 opiniones)</div>
+            <h1>Tradición, Sabor y Nobleza</h1>
+            <p>Fundo Campestre en Moche: El hogar del Caballo Peruano de Paso y la mejor gastronomía criolla.</p>
+            <div class="hero-btns">
+                <a href="#carta" class="btn-primary">Ver Menú</a>
+                <a href="https://wa.me/51913047602" class="btn-secondary">Reservar Mesa</a>
+            </div>
+        </div>
+    </header>
 
-/* NAVBAR (Como en el borrador) */
-.navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%;
-    background: rgba(0, 0, 0, 0.95);
-    position: fixed; width: 100%; top: 0; z-index: 1000;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-}
-.logo { color: var(--gold); font-size: 1.4rem; font-weight: bold; letter-spacing: 1px; }
-.btn-nav-whatsapp {
-    background-color: var(--gold); color: #000;
-    padding: 8px 15px; border-radius: 20px; text-decoration: none; font-size: 0.8rem; font-weight: bold;
-}
+    <section id="servicios" class="section about">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <p class="description">Somos un fundo restaurante que brinda una experiencia integral. Disfruta de amplios salones, hamacas, áreas verdes y juegos para niños frente a la playa El Acuario.</p>
+        <div class="amenities-grid">
+            <div class="amenity-card"><span>🏇</span> Show de Caballos</div>
+            <div class="amenity-card"><span>🍽️</span> Comida Criolla</div>
+            <div class="amenity-card"><span>🏖️</span> Cabalgatas</div>
+            <div class="amenity-card"><span>📸</span> Sesión de Fotos</div>
+        </div>
+    </section>
 
-/* HERO SECTION (Fondo con Parallax) */
-.hero {
-    height: 90vh;
-    background: url('hero-caballo.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Efecto Parallax */
-    display: flex; align-items: center; justify-content: center; text-align: center;
-}
-.hero-overlay {
-    background: rgba(0,0,0,0.6); padding: 40px; border-radius: 10px; max-width: 700px;
-}
-.hero h1 { font-size: 3.5rem; color: var(--gold); margin-bottom: 15px; }
-.hero p { font-size: 1.2rem; color: #fff; }
+    <section id="carta" class="section menu-section">
+        <h2 class="section-title">Nuestra Carta</h2>
+        
+        <div class="menu-container">
+            <div class="menu-block">
+                <h3>Entradas</h3>
+                <div class="menu-item"><span>Papa a la huancaína</span> <span>S/. 15.00</span></div>
+                <div class="menu-item"><span>Yuquitas a la huancaína</span> <span>S/. 16.00</span></div>
+                <div class="menu-item"><span>Causa de Pollo / Atún</span> <span>S/. 20.00</span></div>
+                <div class="menu-item"><span>Causa de Langostinos</span> <span>S/. 28.00</span></div>
+            </div>
 
-/* SECCIONES GENERALES */
-.section { padding: 80px 5%; text-align: center; }
-.alt-bg { background-color: var(--bg-card); }
-.section-title { color: var(--gold); font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; }
+            <div class="menu-block highlight">
+                <h3>Carnes al Cilindro</h3>
+                <div class="menu-item"><span>Pollo al Cilindro (1/4)</span> <span>S/. 29.00</span></div>
+                <div class="menu-item"><span>Mostrito al Cilindro</span> <span>S/. 30.00</span></div>
+                <div class="menu-item highlight-text"><span>Panceta Criolla (230gr)</span> <span>S/. 35.00</span></div>
+                <div class="menu-item"><span>500gr Panceta Oriental</span> <span>S/. 75.00</span></div>
+                <div class="menu-item"><span>1kg Panceta Oriental</span> <span>S/. 140.00</span></div>
+            </div>
 
-/* TARJETAS DE MENÚ PREMIMUM */
-.grid-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.card-menu {
-    background: #1a1a1a; border-radius: 12px; overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.05); text-align: left;
-}
-.card-menu:hover { transform: translateY(-5px); border-color: var(--gold); }
-.card-img { height: 220px; background-size: cover; background-position: center; transition: transform 0.5s ease; }
-.card-menu:hover .card-img { transform: scale(1.05); } /* Efecto zoom sutil */
-.card-body { padding: 25px; }
-.card-body h3 { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
-.card-body p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
-.precio { color: var(--gold); font-weight: bold; font-size: 1.1rem; }
-.nota { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
+            <div class="menu-block">
+                <h3>Pescados y Mariscos</h3>
+                <div class="menu-item"><span>Ceviche de Pescado</span> <span>S/. 38.00</span></div>
+                <div class="menu-item"><span>Ceviche Carretillero</span> <span>S/. 40.00</span></div>
+                <div class="menu-item"><span>Arroz con Mariscos</span> <span>S/. 42.00</span></div>
+                <div class="menu-item"><span>Picante de Langostinos</span> <span>S/. 50.00</span></div>
+            </div>
+        </div>
+    </section>
 
-/* EXPERIENCIAS DETALLADAS */
-.experiences-detailed { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-.exp-card { background: #111; padding: 35px; border-radius: 10px; border-left: 4px solid var(--gold); text-align: left; }
-.exp-card h3 { font-size: 1.3rem; color: #fff; margin-bottom: 10px; }
-.exp-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+    <section id="caballos" class="section horses">
+        <h2 class="section-title">Experiencias con Caballos</h2>
+        <div class="horse-services">
+            <div class="h-card">
+                <h3>Show de Marinera</h3>
+                <p>Sábados y domingos a las 2:30 pm. Disfruta de 5 números estelares con caballos de paso.</p>
+            </div>
+            <div class="h-card">
+                <h3>Cabalgata en la Playa</h3>
+                <p>70 min de aventura. Incluye clase, fotos y video. S/. 80 por persona (S/. 70 si son 2+).</p>
+            </div>
+            <div class="h-card">
+                <h3>Clases de Monta</h3>
+                <p>Aprende desde lo básico hasta bailar marinera. S/. 250 (4 clases) o S/. 450 (8 clases).</p>
+            </div>
+        </div>
+    </section>
 
-/* SERVICIOS Y EVENTOS */
-.grid-events { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 800px; margin: auto; }
-.event-card { background: var(--bg-card); padding: 30px; border-radius: 10px; text-align: left; }
+    <footer id="contacto" class="footer">
+        <div class="footer-grid">
+            <div class="footer-box">
+                <h3>Visítanos</h3>
+                <p>Calle Loreto Cdra 2 - Sector Taquila, Moche.</p>
+                <p>Lun - Dom: 9:00 AM - 6:00 PM</p>
+            </div>
+            <div class="footer-box">
+                <h3>Reservas</h3>
+                <p>Teléfono: +51 913 047 602</p>
+                <p>Plin: Alejandro B. Diaz (50% adelanto)</p>
+            </div>
+            <div class="footer-box">
+                <h3>Redes</h3>
+                <p>Instagram: @laquerenciafundo</p>
+                <p>TikTok: @laquerenciafundo</p>
+            </div>
+        </div>
+        <div class="copyright">© 2026 La Querencia - Fundo Restaurante. Moche, Trujillo.</div>
+    </footer>
 
-/* FOOTER Y BOTÓN WHATSAPP */
-.footer { background: #050505; padding: 50px 5%; font-size: 0.9rem; color: var(--text-muted); text-align: center; }
-.footer h3 { color: var(--gold); margin-bottom: 15px; }
-.whatsapp-float {
-    background-color: #25d366; color: white;
-    padding: 15px 30px; display: inline-block; border-radius: 50px;
-    margin-top: 25px; text-decoration: none; font-weight: bold;
-    animation: pulse 2s infinite;
-}
+    <a href="https://wa.me/51913047602" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
+</body>
+</html>
