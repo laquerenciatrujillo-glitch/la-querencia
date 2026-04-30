@@ -1,296 +1,123 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Querencia | Restaurante Campestre & Experiencia Ecuestre</title>
+    <title>La Querencia | Fundo Campestre & Show de Caballos</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --negro-mate: #121212;
-            --negro-card: #1e1e1e;
-            --dorado: #C5A059;
-            --dorado-brillante: #e3c17e;
-            --blanco-hueso: #f5f5f5;
-            --gris-texto: #b0b0b0;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--negro-mate);
-            color: var(--blanco-hueso);
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--dorado); }
-
-        /* --- Header --- */
-        header {
-            position: fixed;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(18, 18, 18, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-        }
-
-        .logo { font-size: 1.8rem; font-weight: bold; letter-spacing: 2px; }
-        nav a { color: var(--blanco-hueso); text-decoration: none; margin-left: 20px; font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; }
-        nav a:hover { color: var(--dorado); }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&q=80') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 { font-size: 4rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; max-width: 700px; color: var(--gris-texto); }
-        .btn-reserva {
-            margin-top: 30px;
-            padding: 15px 40px;
-            background: var(--dorado);
-            color: var(--negro-mate);
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: 0.3s;
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
-        }
-        .btn-reserva:hover { background: var(--dorado-brillante); transform: scale(1.05); }
-
-        /* --- Secciones Generales --- */
-        section { padding: 80px 10%; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
-        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--dorado); margin: 10px auto; }
-
-        /* --- Carta Gastronómica Estilo Elegante --- */
-        .menu-category { margin-bottom: 50px; }
-        .menu-category h3 { font-size: 2rem; border-bottom: 1px solid var(--dorado); padding-bottom: 10px; margin-bottom: 25px; }
-        
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .menu-item {
-            background: var(--negro-card);
-            padding: 20px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .menu-item-info h4 { color: var(--blanco-hueso); font-family: 'Poppins', sans-serif; font-size: 1.1rem; }
-        .menu-item-info p { font-size: 0.85rem; color: var(--gris-texto); }
-        .menu-price { color: var(--dorado); font-weight: bold; font-size: 1.1rem; white-space: nowrap; margin-left: 15px; }
-
-        /* --- Grid de Servicios --- */
-        .grid-servicios {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--negro-card);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.4s;
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--dorado); }
-        .card-content { padding: 25px; }
-        .card-content i { font-size: 2rem; color: var(--dorado); margin-bottom: 15px; }
-
-        /* --- WhatsApp Flotante --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            color: white;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; color: var(--gris-texto); }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            header { padding: 15px 20px; justify-content: center; }
-            nav { display: none; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <nav class="navbar">
         <div class="logo">LA QUERENCIA</div>
-        <nav>
-            <a href="#restaurante">Carta</a>
-            <a href="#experiencias">Caballos</a>
-            <a href="#eventos">Eventos</a>
-            <a href="#hospedaje">Hospedaje</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#restaurante">Carta</a></li>
+            <li><a href="#experiencias">Experiencias</a></li>
+            <li><a href="#clases">Clases</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="https://wa.me/51913047602" class="btn-reserva">Reservar Ahora</a>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a La Querencia</h1>
+            <p>"Vive experiencias inolvidables con nuestros ejemplares caballos peruanos de paso"</p>
+            <div class="hero-badges">
+                <span>⭐ 4.2 Estrellas</span>
+                <span>📍 Moche, Trujillo</span>
+            </div>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>Tradición y Elegancia</h1>
-        <p>Experimenta el sabor criollo, el garbo del caballo de paso y la brisa del mar de Moche en un solo lugar.</p>
-        <a href="https://wa.me/51913047602?text=Hola, deseo realizar una reserva" class="btn-reserva">RESERVAR AHORA</a>
+    <section class="section section-about">
+        <h2 class="gold-text">Qué Somos</h2>
+        <p>Somos un fundo restaurante que brinda múltiples servicios con caballos: cabalgatas, sesiones de fotos, clases de monta, equinoterapia y shows de marinera. Contamos con hamacas, amplios salones, lounge de descanso y áreas verdes frente al mar.</p>
     </section>
 
-    <section id="restaurante">
-        <h2 class="section-title">Nuestra Carta Original</h2>
-
-        <div class="menu-category">
-            <h3>Entradas</h3>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-info"><h4>Papa a la huancaína</h4></div><div class="menu-price">S/. 15.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Yuquitas a la huancaína</h4></div><div class="menu-price">S/. 16.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Causa de pollo / atún</h4></div><div class="menu-price">S/. 20.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Causa de langostinos</h4></div><div class="menu-price">S/. 28.00</div></div>
-            </div>
-        </div>
-
-        <div class="menu-category">
-            <h3>Pescados y Mariscos</h3>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-info"><h4>Ceviche de pescado</h4></div><div class="menu-price">S/. 38.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Ceviche Mixto</h4></div><div class="menu-price">S/. 42.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Arroz con mariscos</h4></div><div class="menu-price">S/. 42.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Chaufa de langostinos</h4></div><div class="menu-price">S/. 48.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Chicharrón Mixto</h4></div><div class="menu-price">S/. 42.00</div></div>
-            </div>
-        </div>
-
-        <div class="menu-category">
-            <h3>Criollos y Especialidades al Cilindro</h3>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="menu-item-info"><h4>Lomo Saltado</h4><p>Lomo fino con papas y arroz</p></div><div class="menu-price">S/. 50.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Cabrito a la norteña</h4><p>Con frejoles, yuca y zarza</p></div><div class="menu-price">S/. 42.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Pollo al cilindro (1/4)</h4><p>Con papas y ensalada</p></div><div class="menu-price">S/. 29.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Panceta Criolla (230gr)</h4><p>Con papas salteadas</p></div><div class="menu-price">S/. 35.00</div></div>
-                <div class="menu-item"><div class="menu-item-info"><h4>Tallarín saltado de lomo</h4></div><div class="menu-price">S/. 50.00</div></div>
-            </div>
-        </div>
+    <section id="restaurante" class="section">
+        <h2 class="gold-text">Nuestra Propuesta Gastronómica</h2>
+        <p class="subtitle">Atención: Sábados y domingos | Show de Caballos: 2:30 PM</p>
         
-        <p style="text-align: center; margin-top: 20px; color: var(--dorado);">* Consulta por nuestra Panceta por Kilo y Platos para Niños vía WhatsApp.</p>
+        <div class="menu-tabs">
+            <h3>Entradas</h3>
+            <div class="grid-menu">
+                <div class="menu-item"><span>Papa a la huancaína</span> <span>S/. 15.00</span></div>
+                <div class="menu-item"><span>Yuquitas a la huancaína</span> <span>S/. 16.00</span></div>
+                <div class="menu-item"><span>Causa de Pollo / Atún</span> <span>S/. 20.00</span></div>
+                <div class="menu-item"><span>Causa de Langostinos</span> <span>S/. 28.00</span></div>
+            </div>
+
+            <h3>Pescados y Mariscos</h3>
+            <div class="grid-menu">
+                <div class="menu-item"><span>Ceviche de Pescado</span> <span>S/. 38.00</span></div>
+                <div class="menu-item"><span>Ceviche Carretillero</span> <span>S/. 40.00</span></div>
+                <div class="menu-item highlight"><span>Ceviche Mixto</span> <span>S/. 42.00</span></div>
+                <div class="menu-item"><span>Arroz con Mariscos</span> <span>S/. 42.00</span></div>
+                <div class="menu-item"><span>Chaufa de Langostinos</span> <span>S/. 48.00</span></div>
+            </div>
+
+            <h3>Carnes al Cilindro</h3>
+            <div class="grid-menu">
+                <div class="menu-item"><span>Pollo al Cilindro (1/4)</span> <span>S/. 29.00</span></div>
+                <div class="menu-item"><span>Mostrito al Cilindro</span> <span>S/. 30.00</span></div>
+                <div class="menu-item highlight"><span>Panceta Criolla (230g)</span> <span>S/. 35.00</span></div>
+                <div class="menu-item"><span>Panceta Oriental (230g)</span> <span>S/. 38.00</span></div>
+            </div>
+        </div>
     </section>
 
-    <section id="experiencias" style="background-color: #161616;">
-        <h2 class="section-title">Mundo Ecuestre</h2>
-        <div class="grid-servicios">
+    <section id="experiencias" class="section dark-alt">
+        <h2 class="gold-text">Experiencias y Servicios</h2>
+        <div class="grid-cards">
             <div class="card">
-                <div class="card-content">
-                    <i class="fas fa-horse"></i>
-                    <h3>Show de Caballos</h3>
-                    <p>Espectáculo de marinera con nuestros ejemplares: Penélope y Señor de Señores.</p>
+                <div class="card-img img-cabalgata"></div>
+                <div class="card-info">
+                    <h3>Cabalgata en la Playa</h3>
+                    <p>70 min. por campos, dunas y playa El Acuario. Incluye clase introductoria, fotos y videos.</p>
+                    <span class="price-tag">S/. 70.00 (desde 2 pers.)</span>
                 </div>
             </div>
             <div class="card">
-                <div class="card-content">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <h3>Paseos por la Playa</h3>
-                    <p>Cabalgatas románticas al atardecer por la orilla del mar de Moche.</p>
-                    <span class="price">S/. 100.00</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <i class="fas fa-camera"></i>
-                    <h3>Sesiones de Fotos</h3>
-                    <p>Inmortaliza tus momentos especiales con nuestros elegantes caballos.</p>
-                    <span class="price">S/. 150.00</span>
+                <div class="card-img img-fotos"></div>
+                <div class="card-info">
+                    <h3>Sesión de Fotos</h3>
+                    <p>Ideal para quinceaños y bodas. Incluye caballo con montura elegante e instructor.</p>
+                    <span class="price-tag">S/. 200.00 (1 caballo)</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="eventos">
-        <h2 class="section-title">Eventos y Celebraciones</h2>
-        <div class="grid-servicios">
-            <div class="card">
-                <div class="card-content">
-                    <i class="fas fa-utensils"></i>
-                    <h3>Picnics Especiales</h3>
-                    <p>Románticos o de Cumpleaños con decoración exclusiva en el jardín.</p>
-                    <span class="price">Desde S/. 200.00</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <i class="fas fa-users"></i>
-                    <h3>Eventos Corporativos</h3>
-                    <p>Espacios amplios y privados para reuniones de empresas y familias.</p>
-                </div>
-            </div>
+    <section id="clases" class="section">
+        <h2 class="gold-text">Clases de Monta</h2>
+        <p>Aprende desde lo básico hasta bailar marinera a caballo. ¡Entregamos diploma!</p>
+        <div class="grid-menu">
+            <div class="menu-item"><span>Paquete 4 clases (1 vez/semana)</span> <span>S/. 250.00</span></div>
+            <div class="menu-item"><span>Paquete 8 clases (2 veces/semana)</span> <span>S/. 450.00</span></div>
         </div>
+        <p class="small-text">Niveles: Básico (2 meses), Intermedio (4 meses), Avanzado (4 meses).</p>
     </section>
 
-    <section id="hospedaje" style="background-color: #161616;">
-        <h2 class="section-title">Hospedaje Campestre</h2>
-        <div class="grid-servicios">
-            <div class="card">
-                <div class="card-content">
-                    <i class="fas fa-bed"></i>
-                    <h3>Habitación Matrimonial</h3>
-                    <p>Privacidad y confort acogedor. (Próximamente fotos originales).</p>
-                </div>
+    <footer id="contacto" class="footer">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3 class="gold-text">LA QUERENCIA</h3>
+                <p>📍 Calle Loreto Cdra 2 - Sector Taquila, Moche.</p>
+                <p>📞 913 047 602 (WhatsApp)</p>
+                <p>📱 @laquerenciafundo</p>
             </div>
-            <div class="card">
-                <div class="card-content">
-                    <i class="fas fa-users-cog"></i>
-                    <h3>Habitación Familiar</h3>
-                    <p>Espacios amplios diseñados para el descanso tras un día de campo.</p>
-                </div>
+            <div class="footer-hours">
+                <h3>Horario General</h3>
+                <p>Lun - Dom: 9:00 AM - 6:00 PM</p>
+                <p><strong>Reserva:</strong> 50% adelanto vía Plin.</p>
             </div>
         </div>
-    </section>
-
-    <section id="contacto">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2>Visítanos en Moche</h2>
-            <p><i class="fas fa-map-marker-alt"></i> Calle Loreto Cdra 2 - Sector Taquila, Moche, Trujillo.</p>
-            <p><i class="fas fa-phone"></i> +51 913 047 602</p>
+        <div class="whatsapp-fixed">
+            <a href="https://wa.me/51913047602" target="_blank">📲 Reservar por WhatsApp</a>
         </div>
-    </section>
-
-    <a href="https://wa.me/51913047602?text=Hola, quiero más información sobre los servicios de La Querencia" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <footer>
-        <p>© 2026 La Querencia - Tradición y Elegancia en Moche. Todos los derechos reservados.</p>
     </footer>
 
 </body>
