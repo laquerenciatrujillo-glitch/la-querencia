@@ -1,262 +1,97 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Querencia | Fundo Campestre & Restaurante</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --color-primario: #8B4513; /* Terracota */
-            --color-secundario: #556B2F; /* Verde Campestre */
-            --fondo-claro: #FCF9F5; /* Crema suave */
-            --texto-oscuro: #2D2D2D;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--fondo-claro);
-            color: var(--texto-oscuro);
-            margin: 0;
-            scroll-behavior: smooth;
-        }
-
-        /* --- Header & Nav --- */
-        header {
-            background: white;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--color-primario);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--texto-oscuro);
-            margin-left: 25px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover { color: var(--color-secundario); }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?q=80&w=2071&auto=format&fit=crop'); /* Imagen de referencia de caballos */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(40px, 8vw, 70px);
-            margin-bottom: 10px;
-        }
-
-        .hero p { font-size: 1.2rem; max-width: 600px; }
-
-        /* --- Secciones Generales --- */
-        section { padding: 80px 10%; }
-        
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            margin-bottom: 50px;
-        }
-
-        /* --- Menú de Platos (Grid) --- */
-        .platos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .plato-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .plato-card:hover { transform: translateY(-10px); }
-
-        .plato-img {
-            width: 100%;
-            height: 200px;
-            background-color: #eee;
-            object-fit: cover;
-        }
-
-        .plato-info { padding: 20px; }
-        .plato-precio {
-            color: var(--color-primario);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* --- Servicios / Experiencias --- */
-        .servicios-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .servicio-box {
-            background: #fff;
-            padding: 30px;
-            width: 250px;
-            text-align: center;
-            border-bottom: 4px solid var(--color-secundario);
-        }
-
-        .servicio-box i {
-            font-size: 40px;
-            color: var(--color-secundario);
-            margin-bottom: 15px;
-        }
-
-        /* --- Botón WhatsApp --- */
-        .btn-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-            text-decoration: none;
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Querencia</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body {margin:0;font-family:'Poppins',sans-serif;background:#fff;color:#333}
+header {background:url('https://images.unsplash.com/photo-1555992336-03a23c6a3e54') center/cover;height:90vh;color:white;display:flex;align-items:center;justify-content:center;text-align:center}
+header h1 {font-size:3rem}
+section {padding:60px 20px}
+.container {max-width:1100px;margin:auto}
+.cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card {background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1)}
+.card img {width:100%;height:180px;object-fit:cover}
+.card h3 {margin:10px}
+.card p {margin:10px;font-size:14px}
+.price {font-weight:bold;color:#c0392b}
+.whatsapp {position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;font-size:24px;text-decoration:none}
+footer {background:#111;color:white;text-align:center;padding:20px}
+</style>
 </head>
-<body>
+<body><header>
+<div>
+<h1>La Querencia</h1>
+<p>Vive una experiencia única campestre en Moche</p>
+</div>
+</header><section>
+<div class="container">
+<h2>Sobre Nosotros</h2>
+<p>Somos un fundo restaurante en Moche que combina gastronomía criolla con experiencias inolvidables como cabalgatas, shows de marinera y caballos de paso.</p>
+</div>
+</section><section style="background:#f9f9f9">
+<div class="container">
+<h2>Platos Destacados</h2>
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908177522-402b8f3f2c5f">
+<h3>Ceviche Mixto</h3>
+<p>Fresco y delicioso</p>
+<p class="price">S/ 42</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908177482-b1d5d295df1c">
+<h3>Lomo Saltado</h3>
+<p>Clásico peruano</p>
+<p class="price">S/ 50</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1">
+<h3>Panceta Criolla</h3>
+<p>Jugosa y crocante</p>
+<p class="price">S/ 35</p>
+</div>
+</div>
+</div>
+</section><section>
+<div class="container">
+<h2>Experiencias</h2>
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a">
+<h3>Cabalgatas</h3>
+<p>Paseos por playa y campo</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521334884684-d80222895322">
+<h3>Show de Marinera</h3>
+<p>Con caballos de paso</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+<h3>Eventos</h3>
+<p>Celebraciones y reuniones</p>
+</div>
+</div>
+</div>
+</section><section style="background:#f9f9f9">
+<div class="container">
+<h2>Reseñas</h2>
+<p>⭐ 4.2 estrellas basado en 158 opiniones</p>
+<p>"Excelente show de caballos y atención increíble"</p>
+<p>"Ambiente familiar y relajante"</p>
+</div>
+</section><section>
+<div class="container">
+<h2>Contacto</h2>
+<p>📍 Calle Loreto Cdra 2 - Moche</p>
+<p>⏰ 9:00 am - 6:00 pm</p>
+<p>📞 +51 913 047 602</p>
+</div>
+</section><a class="whatsapp" href="https://wa.me/51913047602">💬</a>
 
-    <header>
-        <div class="logo">La Querencia</div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#nosotros">Qué Somos</a>
-            <a href="#carta">Nuestra Carta</a>
-            <a href="#servicios">Experiencias</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
-
-    <section class="hero" id="inicio">
-        <h1>Sabor, Tradición y Caballos de Paso</h1>
-        <p>Vive una experiencia única en Moche. Gastronomía criolla y el alma del Caballo Peruano de Paso frente al mar.</p>
-    </section>
-
-    <section id="nosotros">
-        <h2 class="section-title">Nuestra Esencia</h2>
-        <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
-                <p>Somos un fundo restaurante que brinda múltiples servicios con caballos, desde cabalgatas por la playa hasta shows de marinera. Un espacio diseñado para la familia con amplias áreas verdes, juegos y la mejor sazón norteña.</p>
-                <ul style="list-style: none; padding: 0;">
-                    <li><i class="fas fa-check-circle" style="color: var(--color-secundario);"></i> Show de Marinera (2:30 PM)</li>
-                    <li><i class="fas fa-check-circle" style="color: var(--color-secundario);"></i> Juegos para niños y amplios salones</li>
-                    <li><i class="fas fa-check-circle" style="color: var(--color-secundario);"></i> Ubicados en el Balneario Las Delicias</li>
-                </ul>
-            </div>
-            <div style="flex: 1; min-width: 300px;">
-                <img src="https://images.unsplash.com/photo-1598974357851-98166a9d9b45?q=80&w=1887&auto=format&fit=crop" alt="Caballos de Paso" style="width: 100%; border-radius: 20px;">
-            </div>
-        </div>
-    </section>
-
-    <section id="carta" style="background-color: white;">
-        <h2 class="section-title">Lo más pedido de nuestra Carta</h2>
-        <div class="platos-grid">
-            <div class="plato-card">
-                <img src="https://img.freepik.com/foto-gratis/lomo-saltado-comida-peruana-tradicional_23-2149010469.jpg" class="plato-img" alt="Lomo Saltado">
-                <div class="plato-info">
-                    <h3>Lomo Saltado</h3>
-                    <p>Lomo fino con papas fritas y arroz blanco.</p>
-                    <span class="plato-precio">S/. 50.00</span>
-                </div>
-            </div>
-            <div class="plato-card">
-                <img src="https://img.freepik.com/foto-gratis/ceviche-fresco-pescado-blanco-aji_23-2148280625.jpg" class="plato-img" alt="Ceviche">
-                <div class="plato-info">
-                    <h3>Ceviche de Pescado</h3>
-                    <p>El clásico norteño, fresco y con el punto exacto.</p>
-                    <span class="plato-precio">S/. 38.00</span>
-                </div>
-            </div>
-            <div class="plato-card">
-                <img src="https://img.freepik.com/foto-gratis/deliciosa-panceta-cerdo_23-2148814515.jpg" class="plato-img" alt="Panceta">
-                <div class="plato-info">
-                    <h3>Panceta Criolla</h3>
-                    <p>230gr de pura crocancia con papas salteadas.</p>
-                    <span class="plato-precio">S/. 35.00</span>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="#" class="btn-primary" style="color: var(--color-primario); font-weight: bold;">Ver Carta Completa</a>
-        </div>
-    </section>
-
-    <section id="servicios">
-        <h2 class="section-title">Experiencias La Querencia</h2>
-        <div class="servicios-row">
-            <div class="servicio-box">
-                <i class="fas fa-horse"></i>
-                <h3>Cabalgatas</h3>
-                <p>Paseos guiados por la orilla del mar (70 min).</p>
-            </div>
-            <div class="servicio-box">
-                <i class="fas fa-camera"></i>
-                <h3>Sesión de Fotos</h3>
-                <p>Tus mejores momentos con nuestros caballos elegantes.</p>
-            </div>
-            <div class="servicio-box">
-                <i class="fas fa-utensils"></i>
-                <h3>Eventos</h3>
-                <p>Alquiler de local para bodas, 15 años y corporativos.</p>
-            </div>
-        </div>
-    </section>
-
-    <a href="https://wa.me/51913047602" class="btn-whatsapp" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <footer style="background: #222; color: #fff; text-align: center; padding: 40px;">
-        <p>Calle Loreto Cdra 2 - Sector Taquila, Moche</p>
-        <p>La Querencia © 2026</p>
-    </footer>
-
-</body>
+<footer>
+<p>© 2026 La Querencia</p>
+</footer></body>
 </html>
