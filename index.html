@@ -1,122 +1,503 @@
-<!DOCTYPE html>
+!DOCTYPE html>
+
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Querencia - Fundo Campestre | Moche, Trujillo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>La Querencia</title>
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
 </head>
+
+
+
 <body>
 
-    <nav class="navbar">
-        <div class="logo">LA QUERENCIA</div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#carta">Carta</a></li>
-            <li><a href="#caballos">Mundo Ecuestre</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <a href="tel:+51913047602" class="btn-reserva-nav">Llamar Ahora</a>
-    </nav>
 
-    <header id="inicio" class="hero">
-        <div class="hero-overlay">
-            <div class="stars">⭐ 4.2 (158 opiniones)</div>
-            <h1>Tradición, Sabor y Nobleza</h1>
-            <p>Fundo Campestre en Moche: El hogar del Caballo Peruano de Paso y la mejor gastronomía criolla.</p>
-            <div class="hero-btns">
-                <a href="#carta" class="btn-primary">Ver Menú</a>
-                <a href="https://wa.me/51913047602" class="btn-secondary">Reservar Mesa</a>
-            </div>
-        </div>
-    </header>
 
-    <section id="servicios" class="section about">
-        <h2 class="section-title">Nuestros Servicios</h2>
-        <p class="description">Somos un fundo restaurante que brinda una experiencia integral. Disfruta de amplios salones, hamacas, áreas verdes y juegos para niños frente a la playa El Acuario.</p>
-        <div class="amenities-grid">
-            <div class="amenity-card"><span>🏇</span> Show de Caballos</div>
-            <div class="amenity-card"><span>🍽️</span> Comida Criolla</div>
-            <div class="amenity-card"><span>🏖️</span> Cabalgatas</div>
-            <div class="amenity-card"><span>📸</span> Sesión de Fotos</div>
-        </div>
-    </section>
+<!-- NAV -->
 
-    <section id="carta" class="section menu-section">
-        <h2 class="section-title">Nuestra Carta</h2>
-        
-        <div class="menu-container">
-            <div class="menu-block">
-                <h3>Entradas</h3>
-                <div class="menu-item"><span>Papa a la huancaína</span> <span>S/. 15.00</span></div>
-                <div class="menu-item"><span>Yuquitas a la huancaína</span> <span>S/. 16.00</span></div>
-                <div class="menu-item"><span>Causa de Pollo / Atún</span> <span>S/. 20.00</span></div>
-                <div class="menu-item"><span>Causa de Langostinos</span> <span>S/. 28.00</span></div>
-            </div>
+<header>
 
-            <div class="menu-block highlight">
-                <h3>Carnes al Cilindro</h3>
-                <div class="menu-item"><span>Pollo al Cilindro (1/4)</span> <span>S/. 29.00</span></div>
-                <div class="menu-item"><span>Mostrito al Cilindro</span> <span>S/. 30.00</span></div>
-                <div class="menu-item highlight-text"><span>Panceta Criolla (230gr)</span> <span>S/. 35.00</span></div>
-                <div class="menu-item"><span>500gr Panceta Oriental</span> <span>S/. 75.00</span></div>
-                <div class="menu-item"><span>1kg Panceta Oriental</span> <span>S/. 140.00</span></div>
-            </div>
+<h1>LA QUERENCIA</h1>
 
-            <div class="menu-block">
-                <h3>Pescados y Mariscos</h3>
-                <div class="menu-item"><span>Ceviche de Pescado</span> <span>S/. 38.00</span></div>
-                <div class="menu-item"><span>Ceviche Carretillero</span> <span>S/. 40.00</span></div>
-                <div class="menu-item"><span>Arroz con Mariscos</span> <span>S/. 42.00</span></div>
-                <div class="menu-item"><span>Picante de Langostinos</span> <span>S/. 50.00</span></div>
-            </div>
-        </div>
-    </section>
+<nav>
 
-    <section id="caballos" class="section horses">
-        <h2 class="section-title">Experiencias con Caballos</h2>
-        <div class="horse-services">
-            <div class="h-card">
-                <h3>Show de Marinera</h3>
-                <p>Sábados y domingos a las 2:30 pm. Disfruta de 5 números estelares con caballos de paso.</p>
-            </div>
-            <div class="h-card">
-                <h3>Cabalgata en la Playa</h3>
-                <p>70 min de aventura. Incluye clase, fotos y video. S/. 80 por persona (S/. 70 si son 2+).</p>
-            </div>
-            <div class="h-card">
-                <h3>Clases de Monta</h3>
-                <p>Aprende desde lo básico hasta bailar marinera. S/. 250 (4 clases) o S/. 450 (8 clases).</p>
-            </div>
-        </div>
-    </section>
+<a href="#menu">Carta</a>
 
-    <footer id="contacto" class="footer">
-        <div class="footer-grid">
-            <div class="footer-box">
-                <h3>Visítanos</h3>
-                <p>Calle Loreto Cdra 2 - Sector Taquila, Moche.</p>
-                <p>Lun - Dom: 9:00 AM - 6:00 PM</p>
-            </div>
-            <div class="footer-box">
-                <h3>Reservas</h3>
-                <p>Teléfono: +51 913 047 602</p>
-                <p>Plin: Alejandro B. Diaz (50% adelanto)</p>
-            </div>
-            <div class="footer-box">
-                <h3>Redes</h3>
-                <p>Instagram: @laquerenciafundo</p>
-                <p>TikTok: @laquerenciafundo</p>
-            </div>
-        </div>
-        <div class="copyright">© 2026 La Querencia - Fundo Restaurante. Moche, Trujillo.</div>
-    </footer>
+<a href="#experiencia">Experiencia</a>
 
-    <a href="https://wa.me/51913047602" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
+<a href="#contacto">Contacto</a>
+
+</nav>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="overlay">
+
+<h2>El auténtico sabor de la brasa en Trujillo</h2>
+
+<p>Experiencia campestre, gastronomía y tradición</p>
+
+
+
+<a href="https://wa.me/51913047602" class="btn">Reservar por WhatsApp</a>
+
+</div>
+
+</section>
+
+
+
+<!-- INFO -->
+
+<section class="section">
+
+<h2>Bienvenido a La Querencia</h2>
+
+<p>
+
+Fundo restaurante campestre en Moche. Vive experiencias únicas con caballos peruanos de paso,
+
+shows de marinera, gastronomía criolla y un ambiente familiar.
+
+</p>
+
+
+
+<div class="info-grid">
+
+<div>⭐ 4.2 (158 opiniones)</div>
+
+<div>💰 S/ 40 – 60</div>
+
+<div>⏰ 9:00 AM – 6:00 PM</div>
+
+<div>📍 Moche, Trujillo</div>
+
+</div>
+
+</section>
+
+
+
+<!-- EXPERIENCIA -->
+
+<section id="experiencia" class="section dark">
+
+<h2>Experiencias Únicas</h2>
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<h3>Show de Caballos</h3>
+
+<p>Marinera y caballos peruanos de paso a las 2:30 pm.</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Cabalgata en Playa</h3>
+
+<p>Paseo guiado por dunas, campo y mar. Desde S/70.</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Clases de Monta</h3>
+
+<p>Aprende desde cero hasta nivel avanzado.</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Sesiones de Fotos</h3>
+
+<p>Caballos para bodas, quinceaños y eventos.</p>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- MENU -->
+
+<section id="menu" class="section">
+
+<h2>Nuestra Carta</h2>
+
+
+
+<div class="menu-grid">
+
+
+
+<div class="menu-block">
+
+<h3>Entradas</h3>
+
+<p>Papa a la huancaína - S/15</p>
+
+<p>Yuquitas a la huancaína - S/16</p>
+
+<p>Causa de pollo - S/20</p>
+
+<p>Causa de atún - S/20</p>
+
+<p>Causa de langostinos - S/28</p>
+
+</div>
+
+
+
+<div class="menu-block">
+
+<h3>Mariscos</h3>
+
+<p>Ceviche pescado - S/38</p>
+
+<p>Ceviche mixto - S/42</p>
+
+<p>Chicharrón mixto - S/42</p>
+
+<p>Arroz con mariscos - S/42</p>
+
+<p>Chaufa langostinos - S/48</p>
+
+</div>
+
+
+
+<div class="menu-block">
+
+<h3>Carnes</h3>
+
+<p>Pollo al cilindro - S/29</p>
+
+<p>Mostrito - S/30</p>
+
+<p>Panceta criolla - S/35</p>
+
+<p>Panceta oriental - S/38</p>
+
+</div>
+
+
+
+<div class="menu-block">
+
+<h3>Criollo</h3>
+
+<p>Cabrito - S/42</p>
+
+<p>Lomo saltado - S/50</p>
+
+<p>Tallarín saltado - S/50</p>
+
+<p>Milanesa - S/30</p>
+
+</div>
+
+
+
+<div class="menu-block">
+
+<h3>Niños</h3>
+
+<p>Milanesa junior - S/25</p>
+
+<p>Chicharrón junior - S/25</p>
+
+<p>1/8 pollo - S/25</p>
+
+</div>
+
+
+
+<div class="menu-block">
+
+<h3>Bebidas</h3>
+
+<p>Gaseosa - S/6</p>
+
+<p>Agua - S/4</p>
+
+<p>Cerveza - S/12-14</p>
+
+<p>Chicha - S/20</p>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACTO -->
+
+<section id="contacto" class="section dark">
+
+<h2>Contacto</h2>
+
+
+
+<p>📍 Calle Loreto Cdra 2, Moche</p>
+
+<p>📞 +51 913 047 602</p>
+
+
+
+<a href="https://wa.me/51913047602" class="btn">Reservar Ahora</a>
+
+</section>
+
+
+
+<!-- WHATSAPP FLOAT -->
+
+<a href="https://wa.me/51913047602" class="whatsapp">💬</a>
+
+
 
 </body>
+
 </html>
+
+body {
+
+margin: 0;
+
+font-family: 'Poppins', sans-serif;
+
+background: #0a0a0a;
+
+color: white;
+
+}
+
+
+
+/* NAV */
+
+header {
+
+display: flex;
+
+justify-content: space-between;
+
+padding: 20px;
+
+background: black;
+
+}
+
+
+
+header h1 {
+
+color: gold;
+
+font-family: 'Playfair Display';
+
+}
+
+
+
+nav a {
+
+margin: 0 10px;
+
+color: white;
+
+text-decoration: none;
+
+}
+
+
+
+/* HERO */
+
+.hero {
+
+height: 90vh;
+
+background: url('https://images.unsplash.com/photo-1555992336-03a23c7b20ee') center/cover;
+
+}
+
+
+
+.overlay {
+
+height: 100%;
+
+background: rgba(0,0,0,0.7);
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+align-items: center;
+
+}
+
+
+
+/* BUTTON */
+
+.btn {
+
+background: gold;
+
+color: black;
+
+padding: 12px 25px;
+
+text-decoration: none;
+
+margin-top: 20px;
+
+border-radius: 30px;
+
+}
+
+
+
+/* SECTIONS */
+
+.section {
+
+padding: 60px 20px;
+
+text-align: center;
+
+}
+
+
+
+.dark {
+
+background: #111;
+
+}
+
+
+
+/* CARDS */
+
+.cards {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+
+gap: 20px;
+
+}
+
+
+
+.card {
+
+background: #1a1a1a;
+
+padding: 20px;
+
+border-radius: 15px;
+
+}
+
+
+
+/* MENU */
+
+.menu-grid {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+
+gap: 20px;
+
+}
+
+
+
+.menu-block {
+
+background: #1a1a1a;
+
+padding: 20px;
+
+border-radius: 15px;
+
+}
+
+
+
+.menu-block h3 {
+
+color: gold;
+
+}
+
+
+
+/* WHATSAPP */
+
+.whatsapp {
+
+position: fixed;
+
+bottom: 20px;
+
+right: 20px;
+
+background: #25D366;
+
+padding: 15px;
+
+border-radius: 50%;
+
+font-size: 20px;
+
+}
