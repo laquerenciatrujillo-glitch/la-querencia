@@ -1,124 +1,95 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Querencia | Fundo Campestre & Show de Caballos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* VARIABLES GLOBALES (Colores y Fuentes) */
+:root {
+    --gold: #d4af37; /* Dorado Premium de los ejemplos */
+    --gold-hover: #f1c40f;
+    --bg-dark: #0d0d0d; /* Negro mate profundo */
+    --bg-card: #1a1a1a; /* Gris muy oscuro para tarjetas */
+    --text-main: #f4f4f4;
+    --text-muted: #aaaaaa;
+}
 
-    <nav class="navbar">
-        <div class="logo">LA QUERENCIA</div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#restaurante">Carta</a></li>
-            <li><a href="#experiencias">Experiencias</a></li>
-            <li><a href="#clases">Clases</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <a href="https://wa.me/51913047602" class="btn-reserva">Reservar Ahora</a>
-    </nav>
+/* ESTILOS BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    padding-top: 80px; /* Espacio para la navbar fija */
+}
 
-    <header id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Bienvenido a La Querencia</h1>
-            <p>"Vive experiencias inolvidables con nuestros ejemplares caballos peruanos de paso"</p>
-            <div class="hero-badges">
-                <span>⭐ 4.2 Estrellas</span>
-                <span>📍 Moche, Trujillo</span>
-            </div>
-        </div>
-    </header>
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-    <section class="section section-about">
-        <h2 class="gold-text">Qué Somos</h2>
-        <p>Somos un fundo restaurante que brinda múltiples servicios con caballos: cabalgatas, sesiones de fotos, clases de monta, equinoterapia y shows de marinera. Contamos con hamacas, amplios salones, lounge de descanso y áreas verdes frente al mar.</p>
-    </section>
+/* NAVBAR (Como en el borrador) */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%;
+    background: rgba(0, 0, 0, 0.95);
+    position: fixed; width: 100%; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+.logo { color: var(--gold); font-size: 1.4rem; font-weight: bold; letter-spacing: 1px; }
+.btn-nav-whatsapp {
+    background-color: var(--gold); color: #000;
+    padding: 8px 15px; border-radius: 20px; text-decoration: none; font-size: 0.8rem; font-weight: bold;
+}
 
-    <section id="restaurante" class="section">
-        <h2 class="gold-text">Nuestra Propuesta Gastronómica</h2>
-        <p class="subtitle">Atención: Sábados y domingos | Show de Caballos: 2:30 PM</p>
-        
-        <div class="menu-tabs">
-            <h3>Entradas</h3>
-            <div class="grid-menu">
-                <div class="menu-item"><span>Papa a la huancaína</span> <span>S/. 15.00</span></div>
-                <div class="menu-item"><span>Yuquitas a la huancaína</span> <span>S/. 16.00</span></div>
-                <div class="menu-item"><span>Causa de Pollo / Atún</span> <span>S/. 20.00</span></div>
-                <div class="menu-item"><span>Causa de Langostinos</span> <span>S/. 28.00</span></div>
-            </div>
+/* HERO SECTION (Fondo con Parallax) */
+.hero {
+    height: 90vh;
+    background: url('hero-caballo.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Efecto Parallax */
+    display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.hero-overlay {
+    background: rgba(0,0,0,0.6); padding: 40px; border-radius: 10px; max-width: 700px;
+}
+.hero h1 { font-size: 3.5rem; color: var(--gold); margin-bottom: 15px; }
+.hero p { font-size: 1.2rem; color: #fff; }
 
-            <h3>Pescados y Mariscos</h3>
-            <div class="grid-menu">
-                <div class="menu-item"><span>Ceviche de Pescado</span> <span>S/. 38.00</span></div>
-                <div class="menu-item"><span>Ceviche Carretillero</span> <span>S/. 40.00</span></div>
-                <div class="menu-item highlight"><span>Ceviche Mixto</span> <span>S/. 42.00</span></div>
-                <div class="menu-item"><span>Arroz con Mariscos</span> <span>S/. 42.00</span></div>
-                <div class="menu-item"><span>Chaufa de Langostinos</span> <span>S/. 48.00</span></div>
-            </div>
+/* SECCIONES GENERALES */
+.section { padding: 80px 5%; text-align: center; }
+.alt-bg { background-color: var(--bg-card); }
+.section-title { color: var(--gold); font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; }
 
-            <h3>Carnes al Cilindro</h3>
-            <div class="grid-menu">
-                <div class="menu-item"><span>Pollo al Cilindro (1/4)</span> <span>S/. 29.00</span></div>
-                <div class="menu-item"><span>Mostrito al Cilindro</span> <span>S/. 30.00</span></div>
-                <div class="menu-item highlight"><span>Panceta Criolla (230g)</span> <span>S/. 35.00</span></div>
-                <div class="menu-item"><span>Panceta Oriental (230g)</span> <span>S/. 38.00</span></div>
-            </div>
-        </div>
-    </section>
+/* TARJETAS DE MENÚ PREMIMUM */
+.grid-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card-menu {
+    background: #1a1a1a; border-radius: 12px; overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.05); text-align: left;
+}
+.card-menu:hover { transform: translateY(-5px); border-color: var(--gold); }
+.card-img { height: 220px; background-size: cover; background-position: center; transition: transform 0.5s ease; }
+.card-menu:hover .card-img { transform: scale(1.05); } /* Efecto zoom sutil */
+.card-body { padding: 25px; }
+.card-body h3 { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
+.card-body p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
+.precio { color: var(--gold); font-weight: bold; font-size: 1.1rem; }
+.nota { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
 
-    <section id="experiencias" class="section dark-alt">
-        <h2 class="gold-text">Experiencias y Servicios</h2>
-        <div class="grid-cards">
-            <div class="card">
-                <div class="card-img img-cabalgata"></div>
-                <div class="card-info">
-                    <h3>Cabalgata en la Playa</h3>
-                    <p>70 min. por campos, dunas y playa El Acuario. Incluye clase introductoria, fotos y videos.</p>
-                    <span class="price-tag">S/. 70.00 (desde 2 pers.)</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img img-fotos"></div>
-                <div class="card-info">
-                    <h3>Sesión de Fotos</h3>
-                    <p>Ideal para quinceaños y bodas. Incluye caballo con montura elegante e instructor.</p>
-                    <span class="price-tag">S/. 200.00 (1 caballo)</span>
-                </div>
-            </div>
-        </div>
-    </section>
+/* EXPERIENCIAS DETALLADAS */
+.experiences-detailed { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.exp-card { background: #111; padding: 35px; border-radius: 10px; border-left: 4px solid var(--gold); text-align: left; }
+.exp-card h3 { font-size: 1.3rem; color: #fff; margin-bottom: 10px; }
+.exp-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
 
-    <section id="clases" class="section">
-        <h2 class="gold-text">Clases de Monta</h2>
-        <p>Aprende desde lo básico hasta bailar marinera a caballo. ¡Entregamos diploma!</p>
-        <div class="grid-menu">
-            <div class="menu-item"><span>Paquete 4 clases (1 vez/semana)</span> <span>S/. 250.00</span></div>
-            <div class="menu-item"><span>Paquete 8 clases (2 veces/semana)</span> <span>S/. 450.00</span></div>
-        </div>
-        <p class="small-text">Niveles: Básico (2 meses), Intermedio (4 meses), Avanzado (4 meses).</p>
-    </section>
+/* SERVICIOS Y EVENTOS */
+.grid-events { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 800px; margin: auto; }
+.event-card { background: var(--bg-card); padding: 30px; border-radius: 10px; text-align: left; }
 
-    <footer id="contacto" class="footer">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <h3 class="gold-text">LA QUERENCIA</h3>
-                <p>📍 Calle Loreto Cdra 2 - Sector Taquila, Moche.</p>
-                <p>📞 913 047 602 (WhatsApp)</p>
-                <p>📱 @laquerenciafundo</p>
-            </div>
-            <div class="footer-hours">
-                <h3>Horario General</h3>
-                <p>Lun - Dom: 9:00 AM - 6:00 PM</p>
-                <p><strong>Reserva:</strong> 50% adelanto vía Plin.</p>
-            </div>
-        </div>
-        <div class="whatsapp-fixed">
-            <a href="https://wa.me/51913047602" target="_blank">📲 Reservar por WhatsApp</a>
-        </div>
-    </footer>
+/* FOOTER Y BOTÓN WHATSAPP */
+.footer { background: #050505; padding: 50px 5%; font-size: 0.9rem; color: var(--text-muted); text-align: center; }
+.footer h3 { color: var(--gold); margin-bottom: 15px; }
+.whatsapp-float {
+    background-color: #25d366; color: white;
+    padding: 15px 30px; display: inline-block; border-radius: 50px;
+    margin-top: 25px; text-decoration: none; font-weight: bold;
+    animation: pulse 2s infinite;
+}
 
-</body>
-</html>
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
