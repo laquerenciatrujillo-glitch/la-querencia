@@ -1,97 +1,383 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Querencia</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-body {margin:0;font-family:'Poppins',sans-serif;background:#fff;color:#333}
-header {background:url('https://images.unsplash.com/photo-1555992336-03a23c6a3e54') center/cover;height:90vh;color:white;display:flex;align-items:center;justify-content:center;text-align:center}
-header h1 {font-size:3rem}
-section {padding:60px 20px}
-.container {max-width:1100px;margin:auto}
-.cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card {background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1)}
-.card img {width:100%;height:180px;object-fit:cover}
-.card h3 {margin:10px}
-.card p {margin:10px;font-size:14px}
-.price {font-weight:bold;color:#c0392b}
-.whatsapp {position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;font-size:24px;text-decoration:none}
-footer {background:#111;color:white;text-align:center;padding:20px}
-</style>
-</head>
-<body><header>
-<div>
-<h1>La Querencia</h1>
-<p>Vive una experiencia única campestre en Moche</p>
-</div>
-</header><section>
-<div class="container">
-<h2>Sobre Nosotros</h2>
-<p>Somos un fundo restaurante en Moche que combina gastronomía criolla con experiencias inolvidables como cabalgatas, shows de marinera y caballos de paso.</p>
-</div>
-</section><section style="background:#f9f9f9">
-<div class="container">
-<h2>Platos Destacados</h2>
-<div class="cards">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1604908177522-402b8f3f2c5f">
-<h3>Ceviche Mixto</h3>
-<p>Fresco y delicioso</p>
-<p class="price">S/ 42</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1604908177482-b1d5d295df1c">
-<h3>Lomo Saltado</h3>
-<p>Clásico peruano</p>
-<p class="price">S/ 50</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1">
-<h3>Panceta Criolla</h3>
-<p>Jugosa y crocante</p>
-<p class="price">S/ 35</p>
-</div>
-</div>
-</div>
-</section><section>
-<div class="container">
-<h2>Experiencias</h2>
-<div class="cards">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a">
-<h3>Cabalgatas</h3>
-<p>Paseos por playa y campo</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1521334884684-d80222895322">
-<h3>Show de Marinera</h3>
-<p>Con caballos de paso</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
-<h3>Eventos</h3>
-<p>Celebraciones y reuniones</p>
-</div>
-</div>
-</div>
-</section><section style="background:#f9f9f9">
-<div class="container">
-<h2>Reseñas</h2>
-<p>⭐ 4.2 estrellas basado en 158 opiniones</p>
-<p>"Excelente show de caballos y atención increíble"</p>
-<p>"Ambiente familiar y relajante"</p>
-</div>
-</section><section>
-<div class="container">
-<h2>Contacto</h2>
-<p>📍 Calle Loreto Cdra 2 - Moche</p>
-<p>⏰ 9:00 am - 6:00 pm</p>
-<p>📞 +51 913 047 602</p>
-</div>
-</section><a class="whatsapp" href="https://wa.me/51913047602">💬</a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Querencia - Fundo Restaurante & Show</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primario: #5d4037; /* Marrón más profundo */
+            --secundario: #fdf5e6; /* Crema campestre */
+            --acento: #c6a052; /* Dorado arena */
+            --oscuro: #1a1a1a;
+            --blanco: #ffffff;
+            --verde: #388e3c;
+        }
 
-<footer>
-<p>© 2026 La Querencia</p>
-</footer></body>
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; color: var(--oscuro); background-color: #fff; line-height: 1.6; }
+        h1, h2, h3, .categoria-titulo { font-family: 'Playfair Display', serif; }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primario); letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: var(--oscuro); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--acento); }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1598974357801-cbca100e65d3?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--blanco);
+        }
+        .hero h1 { font-size: 4.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.6rem; margin-bottom: 30px; font-weight: 300; }
+        .btn-principal {
+            padding: 18px 40px;
+            background: var(--acento);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-principal:hover { background: var(--primario); }
+
+        /* --- NOSOTROS --- */
+        .nosotros { padding: 100px 10%; text-align: center; background: var(--secundario); }
+        .nosotros h2 { font-size: 2.8rem; margin-bottom: 25px; color: var(--primario); }
+        .nosotros p { max-width: 900px; margin: 0 auto 40px; font-size: 1.1rem; color: #555; }
+
+        /* --- EXPERIENCIAS --- */
+        .seccion-titulo { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--primario); }
+        .servicios { padding: 80px 5%; }
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.4s;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-body { padding: 20px; text-align: center; }
+        .card-body h3 { margin-bottom: 10px; color: var(--primario); }
+        .card-body p { font-size: 0.9rem; color: #666; }
+
+        /* --- LA CARTA --- */
+        .carta { padding: 100px 5%; background: #fff; }
+        .categoria-bloque { margin-bottom: 60px; }
+        .categoria-titulo { 
+            font-size: 2rem; 
+            color: var(--primario); 
+            border-bottom: 2px solid var(--acento);
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .plato {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .plato:hover { background: #f0f0f0; }
+        .plato img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin-right: 20px; border: 3px solid var(--acento); }
+        .plato-detalles { flex-grow: 1; }
+        .plato-detalles h4 { font-size: 1rem; color: var(--oscuro); }
+        .plato-detalles p { font-size: 0.8rem; color: #777; }
+        .precio { font-weight: 600; color: var(--verde); font-size: 1.1rem; white-space: nowrap; }
+
+        /* --- TESTIMONIOS --- */
+        .testimonios { padding: 100px 10%; background: var(--primario); color: white; text-align: center; }
+        .grid-reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .review-card { background: rgba(255,255,255,0.08); padding: 30px; border-radius: 15px; }
+        .estrellas { color: var(--acento); margin-bottom: 15px; }
+
+        /* --- BOTÓN WHATSAPP --- */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 2000;
+            text-decoration: none;
+        }
+
+        footer { background: #1a1a1a; color: #aaa; padding: 60px 5%; text-align: center; }
+        footer b { color: #fff; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/51913047602" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav>
+        <div class="logo">LA QUERENCIA</div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Qué Somos</a></li>
+            <li><a href="#experiencias">Experiencias</a></li>
+            <li><a href="#carta">La Carta</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <h1>La Querencia</h1>
+        <p>Vive la tradición en el corazón de Moche</p>
+        <a href="#carta" class="btn-principal">Explorar Menú</a>
+    </section>
+
+    <section id="nosotros" class="nosotros">
+        <h2>¿Qué Somos?</h2>
+        <p>Somos un fundo restaurante campestre que brinda múltiples servicios con caballos, desde nuestra experiencia de cabalgata, show de marinera y clases de monta. Un espacio familiar con amplios salones, áreas verdes y juegos para niños.</p>
+        <div class="estrellas">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span style="color: #666; margin-left: 10px;">4.2 (158 opiniones)</span>
+        </div>
+    </section>
+
+    <section id="experiencias" class="servicios">
+        <h2 class="seccion-titulo">Nuestros Servicios</h2>
+        <div class="grid-servicios">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=500" alt="Show">
+                <div class="card-body">
+                    <h3>Show de Marinera</h3>
+                    <p>Disfruta de 5 números con nuestros Caballos Peruanos de Paso (2:30 PM).</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599147171738-349f7e805f42?auto=format&fit=crop&w=500" alt="Cabalgata">
+                <div class="card-body">
+                    <h3>Cabalgata en Playa</h3>
+                    <p>70 min de aventura guiada por la orilla del mar "El Acuario".</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=500" alt="Clases">
+                <div class="card-body">
+                    <h3>Clases de Monta</h3>
+                    <p>Interactúa y aprende a montar desde nivel básico hasta avanzado.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=500" alt="Sesion">
+                <div class="card-body">
+                    <h3>Sesión de Fotos</h3>
+                    <p>Caballos con montura elegante para pre-bodas, 15 años y más.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="carta" class="carta">
+        <h2 class="seccion-titulo" style="font-size: 3.5rem;">Nuestra Carta Original</h2>
+
+        <div class="categoria-bloque">
+            <h3 class="categoria-titulo">Entradas</h3>
+            <div class="grid-menu">
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=150" alt="Huancaina">
+                    <div class="plato-detalles"><h4>Papa a la Huancaína</h4><p>Clásico peruano</p></div>
+                    <div class="precio">S/. 15.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=150" alt="Yuquitas">
+                    <div class="plato-detalles"><h4>Yuquitas a la Huancaína</h4><p>Crocantería pura</p></div>
+                    <div class="precio">S/. 16.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1626602411112-10742f9a3ab8?auto=format&fit=crop&w=150" alt="Causa">
+                    <div class="plato-detalles"><h4>Causa de Pollo</h4><p>Tradición de Lima</p></div>
+                    <div class="precio">S/. 20.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1626602411112-10742f9a3ab8?auto=format&fit=crop&w=150" alt="Causa Lang">
+                    <div class="plato-detalles"><h4>Causa de Langostinos</h4><p>Toque premium</p></div>
+                    <div class="precio">S/. 28.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="categoria-bloque">
+            <h3 class="categoria-titulo">Pescados y Mariscos</h3>
+            <div class="grid-menu">
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=150" alt="Ceviche">
+                    <div class="plato-detalles"><h4>Ceviche de Pescado</h4><p>Fresco del día</p></div>
+                    <div class="precio">S/. 38.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?auto=format&fit=crop&w=150" alt="Ceviche Carret">
+                    <div class="plato-detalles"><h4>Ceviche Carretillero</h4><p>Con chicharrón de pota</p></div>
+                    <div class="precio">S/. 40.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=150" alt="Arroz Mar">
+                    <div class="plato-detalles"><h4>Arroz con Mariscos</h4><p>El favorito marino</p></div>
+                    <div class="precio">S/. 42.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1512058560366-cd242955a61c?auto=format&fit=crop&w=150" alt="Chaufa">
+                    <div class="plato-detalles"><h4>Chaufa de Langostinos</h4><p>Fusión oriental</p></div>
+                    <div class="precio">S/. 48.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="categoria-bloque">
+            <h3 class="categoria-titulo">Carnes al Cilindro</h3>
+            <div class="grid-menu">
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=150" alt="Mostrito">
+                    <div class="plato-detalles"><h4>Mostrito al Cilindro</h4><p>Pollo + Chaufa + Papas</p></div>
+                    <div class="precio">S/. 30.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=150" alt="Panceta">
+                    <div class="plato-detalles"><h4>Panceta Criolla (230gr)</h4><p>Papas salteadas y ensalada</p></div>
+                    <div class="precio">S/. 35.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=150" alt="Panceta 1kg">
+                    <div class="plato-detalles"><h4>1 Kilo de Panceta Criolla</h4><p>Ideal para compartir</p></div>
+                    <div class="precio">S/. 130.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="categoria-bloque">
+            <h3 class="categoria-titulo">Platos Criollos</h3>
+            <div class="grid-menu">
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=150" alt="Cabrito">
+                    <div class="plato-detalles"><h4>Cabrito a la Norteña</h4><p>Con arroz, frejoles y yuca</p></div>
+                    <div class="precio">S/. 42.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=150" alt="Lomo">
+                    <div class="plato-detalles"><h4>Lomo Saltado</h4><p>Lomo fino de primera</p></div>
+                    <div class="precio">S/. 50.00</div>
+                </div>
+                <div class="plato">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=150" alt="Tallarin">
+                    <div class="plato-detalles"><h4>Lomo con Tallarines a la Huancaína</h4><p>La combinación perfecta</p></div>
+                    <div class="precio">S/. 55.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+            <div class="categoria-bloque">
+                <h3 class="categoria-titulo">Para los Engreídos</h3>
+                <div class="plato">
+                    <div class="plato-detalles"><h4>Milanesa Junior</h4><p>Con papas y arroz</p></div>
+                    <div class="precio">S/. 25.00</div>
+                </div>
+                <div class="plato">
+                    <div class="plato-detalles"><h4>1/8 de Pollo al Cilindro</h4><p>Opción saludable</p></div>
+                    <div class="precio">S/. 25.00</div>
+                </div>
+            </div>
+            <div class="categoria-bloque">
+                <h3 class="categoria-titulo">Bebidas</h3>
+                <div class="plato">
+                    <div class="plato-detalles"><h4>Jarra de Chicha Morada</h4></div>
+                    <div class="precio">S/. 20.00</div>
+                </div>
+                <div class="plato">
+                    <div class="plato-detalles"><h4>Cusqueña Trigo/Negra</h4></div>
+                    <div class="precio">S/. 14.00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonios">
+        <h2>Experiencias de nuestros Clientes</h2>
+        <div class="grid-reviews">
+            <div class="review-card">
+                <div class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Bonitos shows de caballos de paso, muy amable el personal. El ambiente es único en Moche."</p>
+                <br><b>- Corintia</b>
+            </div>
+            <div class="review-card">
+                <div class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"La mejor experiencia con Penélope y Señor de Señores. La atención por WhatsApp fue A1."</p>
+                <br><b>- Zara</b>
+            </div>
+            <div class="review-card">
+                <div class="estrellas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                <p>"Lugar espacioso y familiar. Ideal para salir de Trujillo y disfrutar del campo."</p>
+                <br><b>- Miguel Sotomayor</b>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div style="margin-bottom: 20px;">
+            <b style="font-size: 1.5rem;">LA QUERENCIA - FUNDO RESTAURANTE</b><br>
+            Calle Loreto Cdra 2, Sector Taquila, Moche - La Libertad
+        </div>
+        <div style="font-size: 1.2rem; color: #fff; margin-bottom: 20px;">
+            <i class="fab fa-whatsapp"></i> +51 913 047 602
+        </div>
+        <p>Siguenos en: <b>@laquerenciafundo</b></p>
+        <p style="margin-top: 30px; font-size: 0.7rem;">© 2026 Diseñado para La Querencia. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
 </html>
