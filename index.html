@@ -1,367 +1,418 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Querencia - Fundo Restaurante & Experiencia Ecuestre</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primario: #8d6e63; /* Marrón tierra */
-            --secundario: #f4e1d2; /* Crema suave */
-            --acento: #c6a052; /* Dorado/Arena */
-            --oscuro: #2c2c2c;
-            --blanco: #ffffff;
-            --verde: #2e7d32;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fundo La Querencia | Carnes al Cilindro y Caballos de Paso en Moche</title>
+  <meta name="description" content="Fundo Restaurante La Querencia - Sabor, Tradición y Caballos de Paso en el Corazón de Moche. Carnes al cilindro, cabalgatas, hospedaje y eventos."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --negro: #0a0a0a;
+      --negro-medio: #111111;
+      --negro-card: #161616;
+      --dorado: #C9A84C;
+      --dorado-claro: #E8C96A;
+      --dorado-oscuro: #9A7A2E;
+      --crema: #F5ECD7;
+      --blanco: #ffffff;
+      --gris: #888888;
+      --gris-claro: #cccccc;
+      --whatsapp: #25D366;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--negro);
+      color: var(--crema);
+      overflow-x: hidden;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      transition: all 0.3s ease;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--dorado);
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--crema); text-decoration: none;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--dorado); }
+    .nav-reservar {
+      background: var(--dorado); color: var(--negro) !important;
+      padding: 10px 22px; border-radius: 2px;
+      font-weight: 600 !important;
+    }
+    .nav-reservar:hover { background: var(--dorado-claro) !important; color: var(--negro) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 26px; height: 2px; background: var(--dorado); transition: 0.3s; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--oscuro);
-            line-height: 1.6;
-            background-color: #fafafa;
-            scroll-behavior: smooth;
-        }
+    /* ===== HERO ===== */
+    #hero {
+      position: relative; height: 100vh; min-height: 650px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #050505 0%, #1a1205 50%, #050505 100%);
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    }
+    .hero-horse-img {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 60%; height: 100%;
+      object-fit: cover; object-position: center;
+      opacity: 0.55;
+      mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 40%, transparent 100%);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.1) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: left; padding: 0 40px;
+      max-width: 1200px; width: 100%;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--dorado);
+      color: var(--dorado);
+      font-size: 0.65rem; letter-spacing: 4px;
+      text-transform: uppercase; padding: 6px 16px;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-weight: 900; line-height: 1.05;
+      color: var(--dorado);
+      text-shadow: 0 0 60px rgba(201,168,76,0.3);
+      margin-bottom: 10px;
+    }
+    .hero-title span { color: var(--crema); font-style: italic; }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: var(--crema); font-weight: 300;
+      margin-bottom: 36px; max-width: 520px;
+      line-height: 1.7; opacity: 0.9;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--dorado); color: var(--negro);
+      padding: 16px 36px; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none;
+      border: none; cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--dorado-claro); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--crema);
+      padding: 16px 36px; font-size: 0.75rem;
+      font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none;
+      border: 1px solid rgba(245,236,215,0.4);
+      transition: all 0.3s ease; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--dorado); color: var(--dorado); }
+    .hero-stats {
+      position: absolute; bottom: 40px; left: 40px;
+      display: flex; gap: 48px; z-index: 2;
+    }
+    .stat { text-align: left; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: var(--dorado); font-weight: 700;
+    }
+    .stat-label { font-size: 0.65rem; letter-spacing: 2px; color: var(--gris); text-transform: uppercase; }
+    .scroll-indicator {
+      position: absolute; bottom: 40px; right: 40px; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--gris); font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase;
+    }
+    .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--dorado), transparent); animation: scrollAnim 2s ease infinite; }
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    /* ===== SECCIONES GENERALES ===== */
+    section { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
+    .section-full { max-width: 100%; padding: 100px 0; }
+    .section-label {
+      font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--dorado); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before { content: ''; width: 32px; height: 1px; background: var(--dorado); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700; color: var(--crema);
+      margin-bottom: 20px; line-height: 1.2;
+    }
+    .section-title .gold { color: var(--dorado); }
+    .section-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; color: var(--gris-claro);
+      line-height: 1.8; max-width: 620px;
+    }
+    .divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(to right, var(--dorado), transparent);
+      margin: 24px 0;
+    }
 
-        /* --- NAVEGACIÓN --- */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    /* ===== QUIÉNES SOMOS ===== */
+    #nosotros { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .nosotros-imgs { position: relative; }
+    .img-main {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover; border: 1px solid rgba(201,168,76,0.2);
+    }
+    .img-badge-stat {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--dorado); padding: 24px;
+      text-align: center;
+    }
+    .img-badge-stat .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 700; color: var(--negro);
+    }
+    .img-badge-stat .lbl { font-size: 0.6rem; letter-spacing: 2px; color: var(--negro); text-transform: uppercase; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+    .feature-item { display: flex; align-items: flex-start; gap: 12px; }
+    .feature-icon { color: var(--dorado); font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+    .feature-text { font-size: 0.85rem; color: var(--gris-claro); line-height: 1.5; }
+    .feature-text strong { color: var(--crema); display: block; margin-bottom: 2px; }
 
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primario); letter-spacing: 1px; }
+    /* ===== SERVICIOS CARDS ===== */
+    .servicios-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: rgba(201,168,76,0.1);
+      margin: 0; padding: 0;
+    }
+    .servicio-card {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/4; cursor: pointer;
+      background: var(--negro-card);
+    }
+    .servicio-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .servicio-card:hover img { transform: scale(1.08); }
+    .servicio-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 32px;
+      transition: all 0.4s ease;
+    }
+    .servicio-card:hover .servicio-overlay { background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.1) 100%); }
+    .servicio-num { font-size: 0.6rem; letter-spacing: 3px; color: var(--dorado); text-transform: uppercase; margin-bottom: 8px; }
+    .servicio-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--crema); margin-bottom: 12px; font-weight: 700; }
+    .servicio-desc { font-size: 0.78rem; color: var(--gris-claro); line-height: 1.6; opacity: 0; transform: translateY(12px); transition: all 0.4s ease; }
+    .servicio-card:hover .servicio-desc { opacity: 1; transform: translateY(0); }
+    .servicio-arrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--dorado); font-size: 0.7rem; letter-spacing: 2px;
+      text-transform: uppercase; margin-top: 16px;
+      opacity: 0; transition: all 0.4s ease 0.1s;
+      text-decoration: none;
+    }
+    .servicio-card:hover .servicio-arrow { opacity: 1; }
 
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 20px; }
-        nav ul li a { 
-            text-decoration: none; 
-            color: var(--oscuro); 
-            font-weight: 600;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-        nav ul li a:hover { color: var(--acento); }
+    /* ===== RESTAURANTE ===== */
+    #restaurante { padding: 100px 40px; }
+    .restaurante-hero {
+      position: relative; margin-bottom: 60px; overflow: hidden;
+    }
+    .restaurante-imgs {
+      display: grid; grid-template-columns: 2fr 1fr; gap: 4px;
+    }
+    .rest-img { width: 100%; height: 400px; object-fit: cover; }
+    .rest-img-stack { display: grid; grid-template-rows: 1fr 1fr; gap: 4px; }
+    .rest-img-small { width: 100%; height: 198px; object-fit: cover; }
+    .menu-section { margin-top: 60px; }
+    .menu-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 40px; flex-wrap: wrap; gap: 20px;
+    }
+    .menu-tabs { display: flex; gap: 0; }
+    .menu-tab {
+      padding: 10px 20px; font-size: 0.7rem; letter-spacing: 2px;
+      text-transform: uppercase; cursor: pointer;
+      border: 1px solid rgba(201,168,76,0.3);
+      background: transparent; color: var(--gris);
+      transition: all 0.3s; font-family: 'Montserrat', sans-serif;
+    }
+    .menu-tab.active, .menu-tab:hover {
+      background: var(--dorado); color: var(--negro); border-color: var(--dorado);
+    }
+    .menu-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: rgba(201,168,76,0.1);
+    }
+    .menu-cat { background: var(--negro-card); padding: 32px; }
+    .menu-cat-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--dorado);
+      margin-bottom: 6px; font-weight: 700;
+    }
+    .menu-cat-sub { font-size: 0.65rem; color: var(--gris); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+    .menu-sep { width: 100%; height: 1px; background: rgba(201,168,76,0.2); margin-bottom: 20px; }
+    .menu-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+    .menu-item-name { font-size: 0.82rem; color: var(--gris-claro); line-height: 1.4; flex: 1; }
+    .menu-item-name small { display: block; font-size: 0.7rem; color: var(--gris); margin-top: 2px; }
+    .menu-item-price { font-size: 0.82rem; color: var(--dorado); font-weight: 600; white-space: nowrap; }
+    .horario-box {
+      background: var(--negro-card); border: 1px solid rgba(201,168,76,0.2);
+      padding: 32px; margin-top: 40px;
+      display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+    }
+    .horario-item { display: flex; align-items: center; gap: 14px; }
+    .horario-icon { color: var(--dorado); font-size: 1.4rem; }
+    .horario-label { font-size: 0.65rem; color: var(--gris); letter-spacing: 2px; text-transform: uppercase; }
+    .horario-val { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--crema); }
 
-        /* --- HERO SECTION (Diseño solicitado) --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('1000050880.webp'); /* Tu imagen de fondo principal */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--blanco);
-            padding: 0 20px;
-        }
+    /* ===== PLATOS FOTOS ===== */
+    .platos-gallery {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin-top: 40px;
+    }
+    .plato-item { position: relative; aspect-ratio: 1; overflow: hidden; }
+    .plato-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .plato-item:hover img { transform: scale(1.1); }
+    .plato-overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,0.7);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: 0.4s;
+    }
+    .plato-item:hover .plato-overlay { opacity: 1; }
+    .plato-overlay span { font-family: 'Playfair Display', serif; color: var(--dorado); font-size: 0.9rem; text-align: center; padding: 12px; }
 
-        .hero h1 { font-size: 4.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.5rem; margin-bottom: 30px; font-weight: 300; }
-        .btn-reserva {
-            padding: 18px 40px;
-            background: var(--acento);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .btn-reserva:hover { background: var(--primario); transform: translateY(-3px); }
+    /* ===== CABALGATA ===== */
+    #cabalgata { padding: 100px 40px; }
+    .cabalgata-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .cabalgata-gallery {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+    }
+    .cab-img { width: 100%; object-fit: cover; }
+    .cab-img:first-child { aspect-ratio: 16/10; grid-column: 1/-1; }
+    .cab-img:not(:first-child) { aspect-ratio: 1; }
+    .precio-box {
+      background: var(--negro-card); border: 1px solid rgba(201,168,76,0.2);
+      padding: 28px; margin: 24px 0;
+    }
+    .precio-box-title { font-size: 0.65rem; letter-spacing: 3px; color: var(--dorado); text-transform: uppercase; margin-bottom: 16px; }
+    .precio-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .precio-row:last-child { border-bottom: none; }
+    .precio-row span { font-size: 0.85rem; color: var(--gris-claro); }
+    .precio-row strong { font-size: 0.85rem; color: var(--dorado); font-weight: 600; }
+    .info-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .chip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2);
+      padding: 8px 14px; font-size: 0.72rem; color: var(--gris-claro);
+    }
+    .chip i { color: var(--dorado); font-size: 0.8rem; }
+    .horarios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+    .horario-chip {
+      background: rgba(201,168,76,0.05); border: 1px solid rgba(201,168,76,0.15);
+      padding: 12px; text-align: center; font-size: 0.8rem; color: var(--dorado);
+      font-family: 'Playfair Display', serif; font-weight: 600;
+    }
 
-        /* --- SECCIÓN QUÉ SOMOS --- */
-        .about { padding: 100px 10%; text-align: center; background: var(--secundario); }
-        .about h2 { font-size: 3rem; color: var(--primario); margin-bottom: 25px; }
-        .about p { max-width: 850px; margin: 0 auto 30px; font-size: 1.1rem; }
-        .stars { color: var(--acento); margin-bottom: 10px; font-size: 1.2rem; }
+    /* ===== SESIÓN FOTOS ===== */
+    #sesion-fotos { padding: 100px 40px; }
+    .sesion-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .sesion-gallery {
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto;
+      gap: 4px;
+    }
+    .sesion-img { width: 100%; object-fit: cover; }
+    .sesion-img:first-child { grid-column: 1/-1; aspect-ratio: 16/9; }
+    .sesion-img:not(:first-child) { aspect-ratio: 3/4; }
 
-        /* --- SERVICIOS (TARJETAS DINÁMICAS) --- */
-        .services { padding: 100px 5%; background: #fff; }
-        .grid-services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        .service-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: 0.4s;
-            text-align: left;
-            border: 1px solid #f0f0f0;
-        }
-        .service-card:hover { transform: translateY(-12px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
-        .service-card img { width: 100%; height: 240px; object-fit: cover; }
-        .service-card-body { padding: 25px; }
-        .service-card h3 { color: var(--primario); margin-bottom: 12px; font-size: 1.5rem; }
-        .service-card p { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
-        .service-card .price { color: var(--acento); font-weight: 700; font-size: 1.1rem; display: block; }
+    /* ===== CLASES DE MONTA ===== */
+    #clases { padding: 100px 40px; }
+    .clases-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .clases-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .clase-img { width: 100%; object-fit: cover; aspect-ratio: 4/5; }
+    .clase-img:first-child { grid-column: 1/-1; aspect-ratio: 16/7; }
+    .nivel-card {
+      background: var(--negro-card); border: 1px solid rgba(201,168,76,0.15);
+      padding: 20px; margin-bottom: 12px;
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .nivel-num {
+      background: var(--dorado); color: var(--negro);
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.8rem; flex-shrink: 0;
+    }
+    .nivel-info { flex: 1; }
+    .nivel-name { font-size: 0.85rem; color: var(--crema); font-weight: 600; margin-bottom: 4px; }
+    .nivel-detail { font-size: 0.75rem; color: var(--gris); line-height: 1.5; }
+    .nivel-precio { font-size: 0.8rem; color: var(--dorado); font-weight: 600; margin-top: 6px; }
 
-        /* --- CARTA / MENÚ DETALLADO --- */
-        .menu-section { padding: 100px 5%; background: var(--blanco); }
-        .menu-category { margin-bottom: 60px; }
-        .menu-category h2 { 
-            border-bottom: 3px solid var(--acento); 
-            display: inline-block; 
-            margin-bottom: 40px; 
-            color: var(--primario);
-            font-size: 2.2rem;
-        }
-        .grid-menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-        .plato-item {
-            display: flex;
-            align-items: center;
-            background: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #eee;
-            transition: 0.3s;
-        }
-        .plato-item:hover { border-color: var(--acento); background: #fdfaf5; }
-        .plato-item img { width: 90px; height: 90px; border-radius: 12px; object-fit: cover; margin-right: 20px; }
-        .plato-info { flex-grow: 1; }
-        .plato-info h4 { font-size: 1.15rem; margin-bottom: 5px; }
-        .plato-info p { font-size: 0.85rem; color: #777; }
-        .plato-precio { font-weight: bold; color: var(--verde); font-size: 1.25rem; }
+    /* ===== HOSPEDAJE ===== */
+    #hospedaje { padding: 100px 0; }
+    #hospedaje > div { padding: 0 40px; max-width: 1200px; margin: 0 auto; }
+    .habitaciones-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(201,168,76,0.1); margin-top: 40px; }
+    .hab-card { background: var(--negro-card); overflow: hidden; }
+    .hab-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .hab-body { padding: 28px; }
+    .hab-tipo { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--dorado); margin-bottom: 8px; }
+    .hab-nombre { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--crema); margin-bottom: 12px; }
+    .hab-features { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .hab-feature { font-size: 0.7rem; color: var(--gris); display: flex; align-items: center; gap: 6px; }
+    .hab-feature i { color: var(--dorado); font-size: 0.75rem; }
+    .hab-precio-label { font-size: 0.65rem; letter-spacing: 2px; color: var(--gris); text-transform: uppercase; }
+    .hab-precio { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--dorado); font-weight: 700; }
 
-        /* --- TESTIMONIOS REALES --- */
-        .reviews { padding: 100px 10%; background: var(--primario); color: white; text-align: center; }
-        .review-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
-        .review-box {
-            background: rgba(255,255,255,0.08);
-            padding: 35px;
-            border-radius: 20px;
-            width: 350px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .review-box p { font-style: italic; margin-bottom: 20px; font-size: 1.05rem; }
+    /* ===== EVENTOS ===== */
+    #eventos { padding: 100px 40px; }
+    .eventos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(201,168,76,0.1); margin-top: 40px; }
+    .evento-card { position: relative; overflow: hidden; aspect-ratio: 16/10; }
+    .evento-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .evento-card:hover img { transform: scale(1.06); }
+    .evento-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 32px;
+    }
+    .evento-tipo { font-size: 0.6rem; letter-spacing: 3px; color: var(--dorado); text-transform: uppercase; margin-bottom: 8px; }
+    .evento-nombre { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--crema); margin-bottom: 8px; }
+    .evento-desc { font-size: 0.78rem; color: var(--gris-claro); line-height: 1.5; }
 
-        /* --- WHATSAPP FLOTANTE --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 65px;
-            height: 65px;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); }
-
-        footer { background: var(--oscuro); color: rgba(255,255,255,0.8); padding: 60px 5%; text-align: center; }
-        footer .footer-logo { font-family: 'Playfair Display', serif; color: var(--acento); font-size: 2rem; margin-bottom: 15px; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.2rem; }
-            nav ul { display: none; }
-        }
-    </style>
-</head>
-<body>
-
-    <a href="https://wa.me/51913047602" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <nav>
-        <div class="logo">LA QUERENCIA</div>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#nosotros">Fundo</a></li>
-            <li><a href="#servicios">Experiencias</a></li>
-            <li><a href="#carta">La Carta</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <section id="inicio" class="hero">
-        <h1>La Querencia</h1>
-        <p>Sabor, Tradición y Caballos de Paso en Moche</p>
-        <a href="#carta" class="btn-reserva">Ver nuestra Carta</a>
-    </section>
-
-    <section id="nosotros" class="about">
-        <h2>Bienvenido al Fundo</h2>
-        <p>Un espacio campestre único en el Sector Taquila, donde la elegancia del Caballo Peruano de Paso se fusiona con la mejor gastronomía al cilindro. Ideal para desconectar y disfrutar de la cultura viva trujillana.</p>
-        <div class="stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-            <p style="margin-top:10px; font-weight: 600;">4.2 estrellas - 158 opiniones en Google</p>
-        </div>
-    </section>
-
-    <section id="servicios" class="services">
-        <h2 style="text-align:center; font-size: 2.5rem; color: var(--primario);">Experiencias Únicas</h2>
-        <div class="grid-services">
-            
-            <div class="service-card">
-                <img src="1000050803.webp" alt="Cabalgata Playa">
-                <div class="service-card-body">
-                    <h3>Cabalgatas en la Playa</h3>
-                    <p>70 min de recorrido por Playa El Acuario. Incluye clase introductoria, fotos y videos.</p>
-                    <p><strong>Salidas:</strong> 10:00am, 11:30am, 4:00pm, 5:30pm</p>
-                    <span class="price">Desde S/. 70.00</span>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <img src="1000050730.jpg" alt="Escuela de Monta">
-                <div class="service-card-body">
-                    <h3>Escuela de Monta</h3>
-                    <p>Niveles Básico, Intermedio y Avanzado. Clases personalizadas de 50 minutos.</p>
-                    <p><strong>Beneficio:</strong> Diploma al finalizar cada nivel.</p>
-                    <span class="price">S/. 450.00 (8 clases)</span>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <img src="1000050734.jpg" alt="Eventos Especiales">
-                <div class="service-card-body">
-                    <h3>Sesiones & Eventos</h3>
-                    <p>Sesiones de fotos para 15 años o bodas con caballos de gala. Picnic y eventos exclusivos.</p>
-                    <span class="price">Sesión desde S/. 200.00</span>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <img src="1000050767.webp" alt="Show de Marinera">
-                <div class="service-card-body">
-                    <h3>Show de Marinera</h3>
-                    <p>Admira la elegancia de nuestros Caballos de Paso en un espectáculo tradicional.</p>
-                    <p><strong>Horario:</strong> Todos los días a las 2:30 PM</p>
-                    <span class="price">Show Incluido</span>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <section id="carta" class="menu-section">
-        <h2 style="text-align:center; font-size: 3rem; color: var(--primario); margin-bottom: 20px;">Nuestra Carta</h2>
-        
-        <div class="menu-category">
-            <h2>Especialidades al Cilindro</h2>
-            <div class="grid-menu">
-                <div class="plato-item">
-                    <img src="1000050806.jpg" alt="Panceta">
-                    <div class="plato-info">
-                        <h4>Panceta Criolla (230gr)</h4>
-                        <p>Panceta ahumada con papas salteadas</p>
-                    </div>
-                    <div class="plato-precio">S/. 35.00</div>
-                </div>
-                <div class="plato-item">
-                    <img src="1000050807.jpg" alt="Mostrito">
-                    <div class="plato-info">
-                        <h4>Mostrito al Cilindro</h4>
-                        <p>Pollo al cilindro + Chaufa + Papas</p>
-                    </div>
-                    <div class="plato-precio">S/. 30.00</div>
-                </div>
-                <div class="plato-item">
-                    <img src="1000050806.jpg" alt="Panceta Kilo">
-                    <div class="plato-info">
-                        <h4>1 KG Panceta Criolla</h4>
-                        <p>Ideal para compartir en familia</p>
-                    </div>
-                    <div class="plato-precio">S/. 130.00</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-category">
-            <h2>Tradición Criolla y Marina</h2>
-            <div class="grid-menu">
-                <div class="plato-item">
-                    <img src="1000050376.jpg" alt="Ceviche">
-                    <div class="plato-info">
-                        <h4>Ceviche de Pescado</h4>
-                        <p>Clásico frescor mocheño</p>
-                    </div>
-                    <div class="plato-precio">S/. 38.00</div>
-                </div>
-                <div class="plato-item">
-                    <img src="1000050377.jpg" alt="Cabrito">
-                    <div class="plato-info">
-                        <h4>Cabrito a la Norteña</h4>
-                        <p>Tradición pura con frejoles y yuca</p>
-                    </div>
-                    <div class="plato-precio">S/. 42.00</div>
-                </div>
-                <div class="plato-item">
-                    <img src="1000050871.webp" alt="Lomo Saltado">
-                    <div class="plato-info">
-                        <h4>Lomo Saltado</h4>
-                        <p>Corte fino salteado al wok</p>
-                    </div>
-                    <div class="plato-precio">S/. 50.00</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="reviews">
-        <h2>Experiencias de Visitantes</h2>
-        <div class="review-container">
-            <div class="review-box">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"Bonito shows de caballos de paso, muy amable el personal y los paseos en la playa son increíbles."</p>
-                <strong>- Zara</strong>
-            </div>
-            <div class="review-box">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"Excelente lugar para almorzar y ver el show. Los combos familiares al cilindro son lo mejor."</p>
-                <strong>- Miguel Sotomayor</strong>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contacto">
-        <div class="footer-logo">LA QUERENCIA</div>
-        <p>Calle Loreto Cdra 2, Sector Taquila - Moche, Trujillo</p>
-        <p>Reservas: <strong>+51 913 047 602</strong></p>
-        <p style="margin-top: 15px;">Atención: Lun - Dom | 9:00 AM - 6:00 PM</p>
-        <div style="margin-top: 25px; font-size: 24px;">
-            <i class="fab fa-facebook" style="margin: 0 10px;"></i>
-            <i class="fab fa-instagram" style="margin: 0 10px;"></i>
-            <i class="fab fa-tiktok" style="margin: 0 10px;"></i>
-        </div>
-        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">© 2026 Fundo La Querencia. Experiencia Premium en Moche.</p>
-    </footer>
-
-</body>
-</html>
+    /* ===== PICNIC ===== */
+    #picnic { padding: 100px 40px; }
+    .picnic-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .picnic-imgs {
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 4px;
+    }
+    .picnic-img { width: 100%; object-fit: cover; aspect-ratio: 1; }
+    .picnic-img:first-child { grid-column
