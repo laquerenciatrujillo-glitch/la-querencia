@@ -1,4 +1,306 @@
+html
 <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fundo Restaurante La Querencia - Carnes al cilindro, caballos de paso, hospedaje y eventos en Moche, Trujillo">
+    <title>La Querencia | Fundo Restaurante & Show de Caballos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           VARIABLES Y RESET
+           ========================================== */
+        :root {
+            --oro: #D4AF37;
+            --oro-claro: #F4D03F;
+            --negro: #0a0a0a;
+            --gris-oscuro: #141414;
+            --gris-medio: #1f1f1f;
+            --texto: #ffffff;
+            --texto-gris: #b0b0b0;
+            --whatsapp: #25D366;
+            --fuente-titulo: 'Playfair Display', serif;
+            --fuente-texto: 'Lato', sans-serif;
+            --sombra: 0 8px 30px rgba(0,0,0,0.6);
+            --transicion: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--fuente-texto);
+            background-color: var(--negro);
+            color: var(--texto);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ==========================================
+           NAVBAR
+           ========================================== */
+        .navbar {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(10,10,10,0.95);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212,175,55,0.3);
+            backdrop-filter: blur(10px);
+        }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--fuente-titulo); font-size: 1.8rem; font-weight: 700; color: var(--oro); letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: var(--transicion); }
+        .nav-links a:hover { color: var(--oro); }
+        .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .burger div { width: 25px; height: 2px; background: var(--texto); transition: var(--transicion); }
+
+        /* ==========================================
+           HERO
+           ========================================== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('img/caballo-blanco-hero.jpg') center/cover;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            position: relative;
+        }
+        .hero-content { max-width: 900px; padding: 2rem; z-index: 2; }
+        .hero h1 { font-family: var(--fuente-titulo); font-size: 4rem; color: var(--oro); margin-bottom: 1rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+        .hero p { font-size: 1.3rem; color: var(--texto-gris); margin-bottom: 2rem; font-style: italic; }
+        .hero-btns { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; text-transform: uppercase; transition: var(--transicion); cursor: pointer; }
+        .btn-primary { background: linear-gradient(135deg, var(--oro), var(--oro-claro)); color: var(--negro); box-shadow: 0 4px 15px rgba(212,175,55,0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212,175,55,0.6); }
+        .btn-outline { border: 2px solid var(--oro); color: var(--oro); }
+        .btn-outline:hover { background: var(--oro); color: var(--negro); }
+
+        /* ==========================================
+           SECCIONES GENERALES
+           ========================================== */
+        section { padding: 6rem 0; }
+        .section-title { font-family: var(--fuente-titulo); font-size: 3rem; color: var(--oro); text-align: center; margin-bottom: 1rem; }
+        .section-sub { text-align: center; color: var(--texto-gris); margin-bottom: 4rem; font-size: 1.1rem; }
+        .grid { display: grid; gap: 2.5rem; }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .card { background: var(--gris-medio); border-radius: 15px; overflow: hidden; border: 1px solid rgba(212,175,55,0.2); transition: var(--transicion); }
+        .card:hover { transform: translateY(-8px); box-shadow: var(--sombra); border-color: var(--oro); }
+        .card-img { width: 100%; height: 250px; object-fit: cover; }
+        .card-body { padding: 2rem; }
+        .card h3 { font-family: var(--fuente-titulo); color: var(--oro); font-size: 1.5rem; margin-bottom: 1rem; }
+        .card p { color: var(--texto-gris); margin-bottom: 1.5rem; }
+        .tag { display: inline-block; background: var(--oro); color: var(--negro); padding: 0.4rem 1.2rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem; }
+
+        /* ==========================================
+           QUIENES SOMOS
+           ========================================== */
+        .about { background: var(--gris-oscuro); text-align: center; }
+        .about p { max-width: 800px; margin: 0 auto 2rem; color: var(--texto-gris); font-size: 1.1rem; line-height: 1.8; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .feature { padding: 2rem; background: var(--gris-medio); border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); }
+        .feature h4 { color: var(--oro); margin-bottom: 0.5rem; }
+
+        /* ==========================================
+           MENÚ / CARTA
+           ========================================== */
+        .menu-category { margin-bottom: 4rem; }
+        .menu-title { font-family: var(--fuente-titulo); color: var(--oro); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--oro); padding-bottom: 0.5rem; display: inline-block; }
+        .menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 1rem 0; border-bottom: 1px dashed rgba(212,175,55,0.2); }
+        .menu-item:last-child { border: none; }
+        .menu-item h4 { font-size: 1.1rem; color: var(--texto); }
+        .menu-item .precio { color: var(--oro-claro); font-weight: 700; font-size: 1.1rem; }
+        .menu-item p { font-size: 0.9rem; color: var(--texto-gris); margin-top: 0.3rem; }
+        .menu-desc { text-align: center; max-width: 700px; margin: 0 auto 3rem; color: var(--texto-gris); }
+        .show-banner { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('img/show-caballos.jpg') center/cover; padding: 4rem 2rem; border-radius: 15px; text-align: center; margin: 4rem 0; border: 2px solid var(--oro); }
+        .show-banner h3 { font-family: var(--fuente-titulo); color: var(--oro); font-size: 2.2rem; margin-bottom: 1rem; }
+
+        /* ==========================================
+           SERVICIOS DETALLADOS
+           ========================================== */
+        .service-detail { background: var(--gris-oscuro); border-radius: 15px; padding: 3rem; margin-bottom: 3rem; border: 1px solid rgba(212,175,55,0.2); }
+        .service-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; }
+        .service-header h3 { font-family: var(--fuente-titulo); color: var(--oro); font-size: 2rem; }
+        .service-prices { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .price-box { background: var(--gris-medio); padding: 1.5rem; border-radius: 10px; text-align: center; border: 1px solid var(--oro); min-width: 140px; }
+        .price-box .amount { font-size: 1.8rem; color: var(--oro-claro); font-weight: 700; display: block; }
+        .price-box span { font-size: 0.9rem; color: var(--texto-gris); }
+        .service-info ul { margin: 1.5rem 0; color: var(--texto-gris); }
+        .service-info li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
+        .service-info li::before { content: '✓'; position: absolute; left: 0; color: var(--oro); font-weight: bold; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; transition: var(--transicion); }
+        .gallery img:hover { transform: scale(1.05); }
+
+        /* ==========================================
+           HOSPEDAJE & EVENTOS
+           ========================================== */
+        .room-card, .event-card { text-align: center; }
+        .room-card h3, .event-card h3 { color: var(--oro); font-family: var(--fuente-titulo); margin: 1rem 0 0.5rem; }
+        .cta-box { background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(255,165,0,0.1)); border: 2px solid var(--oro); padding: 3rem; border-radius: 15px; text-align: center; margin-top: 4rem; }
+        .cta-box h3 { font-family: var(--fuente-titulo); color: var(--oro); font-size: 2rem; margin-bottom: 1rem; }
+
+        /* ==========================================
+           TESTIMONIOS & CONTACTO
+           ========================================== */
+        .testimonial { background: var(--gris-medio); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--oro); }
+        .stars { color: var(--oro); margin-bottom: 1rem; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .contact-info p { margin-bottom: 1rem; color: var(--texto-gris); }
+        .contact-info strong { color: var(--oro); }
+        .map-frame { width: 100%; height: 350px; border-radius: 15px; border: 2px solid var(--oro); }
+
+        /* ==========================================
+           WHATSAPP FLOTANTE & FOOTER
+           ========================================== */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background: var(--whatsapp); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.4); z-index: 999; transition: var(--transicion);
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+        @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        
+        footer { background: var(--gris-oscuro); padding: 4rem 0 2rem; border-top: 1px solid rgba(212,175,55,0.3); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-col h4 { color: var(--oro); margin-bottom: 1.5rem; font-family: var(--fuente-titulo); }
+        .footer-col p, .footer-col a { color: var(--texto-gris); line-height: 1.8; transition: var(--transicion); }
+        .footer-col a:hover { color: var(--oro); }
+        .copy { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(212,175,55,0.2); color: var(--texto-gris); font-size: 0.9rem; }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 70px; right: -100%; width: 80%; height: 100vh; background: var(--gris-oscuro); flex-direction: column; padding: 2rem; transition: 0.4s; }
+            .nav-links.active { right: 0; }
+            .burger { display: flex; }
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .service-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">LA QUERENCIA</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#restaurante">Restaurante</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#hospedaje">Hospedaje</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <div></div><div></div><div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Tradición y Elegancia</h1>
+            <p>"Sabor, Tradición y Caballos de Paso en el Corazón de Moche"</p>
+            <div class="hero-btns">
+                <a href="#restaurante" class="btn btn-primary">🍽️ Ver Carta</a>
+                <a href="#servicios" class="btn btn-outline">🐴 Experiencias</a>
+                <a href="https://wa.me/51913047602?text=Hola,%20quiero%20reservar%20en%20La%20Querencia" target="_blank" class="btn btn-primary">📱 Reservar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <h2 class="section-title">¿Qué Somos?</h2>
+            <p>Somos un fundo restaurante que combina la gastronomía criolla norteña con la tradición ecuestre. Contamos con más de 16 caballos peruanos de paso amaestrados, amplias áreas verdes, zonas de juego y ambientes rústicos-elegantes para que disfrutes del aire libre y la tranquilidad de Moche.</p>
+            <div class="features">
+                <div class="feature"><h4>🐴 Caballerizas</h4><p>+16 ejemplares de paso peruano</p></div>
+                <div class="feature"><h4>🍖 Cilindro & Criollo</h4><p>Especialidad en carnes ahumadas</p></div>
+                <div class="feature"><h4> Shows</h4><p>Marinera y caballos a las 2:30 PM</p></div>
+                <div class="feature"><h4> Naturaleza</h4><p>Espacios abiertos y familiares</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESTAURANTE -->
+    <section id="restaurante">
+        <div class="container">
+            <h2 class="section-title">Restaurante & Show</h2>
+            <p class="section-sub">Horario: Lunes a Domingo | 9:00 AM - 6:00 PM | Precio promedio: S/ 40-60</p>
+            
+            <div class="show-banner">
+                <h3>🐴 Show de Caballos de Paso y Marinera Norteña</h3>
+                <p>Todos los días a las 2:30 PM | 5 números espectaculares incluidos</p>
+            </div>
+
+            <p class="menu-desc">Disfruta de nuestra carta completa preparada con ingredientes frescos y el auténtico sabor norteño.</p>
+
+            <div class="menu-category">
+                <h3 class="menu-title">🔥 Especialidades al Cilindro</h3>
+                <div class="grid-2">
+                    <div class="menu-item"><div><h4>Pollo al Cilindro (1/4)</h4><p>Con papas crocantes y ensalada</p></div><span class="precio">S/ 29.00</span></div>
+                    <div class="menu-item"><div><h4>Mostrito al Cilindro (1/4)</h4><p>Pollo al cilindro + arroz chaufa</p></div><span class="precio">S/ 30.00</span></div>
+                    <div class="menu-item"><div><h4>⭐ Panceta Criolla (230g)</h4><p>Con papas salteadas y ensalada</p></div><span class="precio">S/ 35.00</span></div>
+                    <div class="menu-item"><div><h4>Panceta Oriental (230g)</h4><p>Con arroz chaufa y papas fritas</p></div><span class="precio">S/ 38.00</span></div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3 class="menu-title">🥓 Panceta por Kilo (Para compartir)</h3>
+                <div class="grid-2">
+                    <div class="menu-item"><div><h4>500g Panceta Criolla</h4><p>Para 2-3 personas</p></div><span class="precio">S/ 70.00</span></div>
+                    <div class="menu-item"><div><h4>1 Kilo Panceta Criolla</h4><p>Para 4-5 personas</p></div><span class="precio">S/ 130.00</span></div>
+                    <div class="menu-item"><div><h4>500g Panceta Oriental</h4><p>Para 2-3 personas</p></div><span class="precio">S/ 75.00</span></div>
+                    <div class="menu-item"><div><h4>1 Kilo Panceta Oriental</h4><p>Para 4-5 personas</p></div><span class="precio">S/ 140.00</span></div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3 class="menu-title"> Pescados y Mariscos</h3>
+                <div class="grid-2">
+                    <div class="menu-item"><div><h4>Ceviche de Pescado</h4></div><span class="precio">S/ 38.00</span></div>
+                    <div class="menu-item"><div><h4>Ceviche Carretillero</h4></div><span class="precio">S/ 40.00</span></div>
+                    <div class="menu-item"><div><h4>Ceviche Mixto</h4></div><span class="precio">S/ 42.00</span></div>
+                    <div class="menu-item"><div><h4>Chicharrón de Pescado</h4></div><span class="precio">S/ 38.00</span></div>
+                    <div class="menu-item"><div><h4>Chicharrón Mixto</h4></div><span class="precio">S/ 42.00</span></div>
+                    <div class="menu-item"><div><h4>Arroz con Mariscos</h4></div><span class="precio">S/ 42.00</span></div>
+                    <div class="menu-item"><div><h4>Chaufa de Langostinos</h4></div><span class="precio">S/ 48.00</span></div>
+                    <div class="menu-item"><div><h4>Arroz con Langostinos</h4></div><span class="precio">S/ 48.00</span></div>
+                    <div class="menu-item"><div><h4>Picante de Mariscos</h4></div><span class="precio">S/ 45.00</span></div>
+                    <div class="menu-item"><div><h4>Picante de Langostinos</h4></div><span class="precio">S/ 50.00</span></div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3 class="menu-title">🍖 Criollos y Extras</h3>
+                <div class="grid-2">
+                    <div class="menu-item"><div><h4>Cabrito a la Norteña</h4><p>Con arroz, frejoles, yuca y zarza</p></div><span class="precio">S/ 42.00</span></div>
+                    <div class="menu-item"><div><h4>Lomo Saltado</h4></div><span class="precio">S/ 30.00</span></div>
+                    <div class="menu-item"><div><h4>Tallarín Saltado de Lomo</h4></div><span class="precio">S/ 30.00</span></div>
+                    <div class="menu-item"><div><h4>Lomo con Tallarines Huancaína</h4></div><span class="precio">S/ 35.00</span></div>
+                    <div class="menu-item"><div><h4>Milanesa de Pechuga</h4></div><span class="precio">S/ 30.00</span></div>
+                    <div class="menu-item"><div><h4>Chicharrón de Pollo</h4></div><span class="precio">S/ 30.00</span></div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3 class="menu-title">🥗 Entradas</h3>
+                <div class="grid-2">
+                    <div class="menu-item"><div><h4>Papa a la Huancaína</h4></div><span class="precio">S/ 15.00</span></div>
+                    <div class="menu-item"><div><h4>Yuquitas a la Huanc    <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
